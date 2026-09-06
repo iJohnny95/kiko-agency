@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Cta } from "@/components/cta";
+import { Kiko } from "@/components/kiko";
 import {
   Field,
   FieldDescription,
@@ -12,11 +13,21 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [phase, setPhase] = useState<"edit" | "submit" | "done">("edit");
 
-  if (sent) {
+  if (phase === "submit") {
+    return (
+      <div className="flex flex-col items-center gap-5 py-8 text-center">
+        <Kiko slot="submit" state="pensa" size="md" />
+        <p className="text-sm text-muted-foreground">A confirmar neste ecrã…</p>
+      </div>
+    );
+  }
+
+  if (phase === "done") {
     return (
       <div className="flex flex-col items-center gap-6 py-6 text-center">
+        <Kiko slot="confirmation" state="celebra" size="md" />
         <div className="flex max-w-md flex-col gap-3">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Recebido — neste ecrã.
@@ -30,7 +41,7 @@ export function ContactForm() {
           <Cta
             variant="ctaOutline"
             className="w-full sm:w-auto"
-            onClick={() => setSent(false)}
+            onClick={() => setPhase("edit")}
           >
             Escrever outra
           </Cta>
@@ -47,7 +58,8 @@ export function ContactForm() {
       className="flex flex-col gap-8"
       onSubmit={(event) => {
         event.preventDefault();
-        setSent(true);
+        setPhase("submit");
+        window.setTimeout(() => setPhase("done"), 800);
       }}
     >
       <FieldGroup>

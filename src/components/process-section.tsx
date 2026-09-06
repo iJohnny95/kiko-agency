@@ -1,4 +1,5 @@
 import { ProcessIcon } from "@/components/icons";
+import { Kiko } from "@/components/kiko";
 import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { processSteps } from "@/lib/site";
@@ -7,16 +8,24 @@ export function ProcessSection() {
   return (
     <Section className="py-20 md:py-28">
       <div className="flex flex-col gap-14">
-        <Reveal className="flex max-w-xl flex-col gap-5">
-          <Eyebrow>Sistema</Eyebrow>
-          <h2 className="text-3xl leading-tight md:text-5xl">
-            Brief → Proposta →{" "}
-            <span className="text-gradient">Entrega</span>
-          </h2>
-          <p className="text-base leading-relaxed text-muted-foreground">
-            Três passos, sem teatro. O objectivo é um site que um visitante
-            percebe — e no qual sabe o que fazer a seguir.
-          </p>
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="flex max-w-xl flex-col gap-5">
+            <Eyebrow>Sistema</Eyebrow>
+            <h2 className="text-3xl leading-tight md:text-5xl">
+              Brief → Proposta →{" "}
+              <span className="text-gradient">Entrega</span>
+            </h2>
+            <p className="text-base leading-relaxed text-muted-foreground">
+              Três passos, sem teatro. O objectivo é um site que um visitante
+              percebe — e no qual sabe o que fazer a seguir.
+            </p>
+          </div>
+          <Kiko
+            slot="process"
+            state="three-quarter"
+            size="sm"
+            className="shrink-0 self-start"
+          />
         </Reveal>
         <ol className="grid gap-4 md:grid-cols-3">
           {processSteps.map((step, index) => (

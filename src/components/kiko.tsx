@@ -4,107 +4,123 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export type KikoSlot = "hero" | "submit" | "confirmation";
-export type KikoState = "idle" | "point" | "think" | "celebrate";
+export type KikoSlot =
+  | "hero"
+  | "services"
+  | "process"
+  | "faq"
+  | "submit"
+  | "confirmation"
+  | "trabalho";
 
-export type KikoMotionHook = {
-  kind: "rive" | "lottie";
-  src: string;
-};
+export type KikoState =
+  | "idle"
+  | "three-quarter"
+  | "aponta"
+  | "pensa"
+  | "celebra"
+  | "faq";
 
 type KikoProps = {
   slot: KikoSlot;
   state?: KikoState;
   className?: string;
-  /** Reserved for a later Rive/Lottie runtime. */
-  motion?: KikoMotionHook;
   priority?: boolean;
   size?: "sm" | "md" | "lg";
 };
 
 const sizeClass = {
-  sm: "w-[7.5rem]",
-  md: "w-44",
-  lg: "w-[16.5rem] sm:w-80 lg:w-[22rem]",
+  sm: "w-[5.5rem] md:w-24",
+  md: "w-36 md:w-44",
+  lg: "w-44 md:w-56",
 } as const;
 
-const poses = {
-  idle: { y: 0, x: 0, rotate: 0, scale: 1 },
-  point: { y: -6, x: 10, rotate: -8, scale: 1.03 },
-  think: { y: -2, x: -6, rotate: 7, scale: 1 },
-  celebrate: { y: -14, x: 0, rotate: 0, scale: 1.08 },
-} as const;
+const poseSrc: Record<KikoState, { src: string; w: number; h: number }> = {
+  idle: { src: "/kiko/idle.png", w: 631, h: 907 },
+  "three-quarter": { src: "/kiko/three-quarter.png", w: 557, h: 904 },
+  aponta: { src: "/kiko/aponta.png", w: 701, h: 904 },
+  pensa: { src: "/kiko/pensa.png", w: 564, h: 910 },
+  celebra: { src: "/kiko/celebra.png", w: 646, h: 899 },
+  faq: { src: "/kiko/faq.png", w: 671, h: 895 },
+};
+
+const slotPose: Record<KikoSlot, KikoState> = {
+  hero: "idle",
+  services: "aponta",
+  process: "three-quarter",
+  faq: "faq",
+  submit: "pensa",
+  confirmation: "celebra",
+  trabalho: "idle",
+};
+
+const altByState: Record<KikoState, string> = {
+  idle: "Kiko, a mascote da Kiko Agency, em pose de boas-vindas",
+  "three-quarter": "Kiko, a mascote da Kiko Agency, em três quartos",
+  aponta: "Kiko, a mascote da Kiko Agency, a apontar",
+  pensa: "Kiko, a mascote da Kiko Agency, a pensar",
+  celebra: "Kiko, a mascote da Kiko Agency, a celebrar",
+  faq: "Kiko, a mascote da Kiko Agency, com um ponto de interrogação",
+};
 
 /**
- * Kiko — living ink-drop.
- * Transparent PNG + SVG mark. `data-kiko-slot` and `data-state`
- * (idle / point / think / celebrate) are the motion hooks.
+ * Kiko Evolution 3 — living ink-drop.
+ * One pose per mapped slot. `data-kiko-slot` + `data-state` are the hooks.
  */
 export function Kiko({
   slot,
-  state = "idle",
+  state,
   className,
-  motion: motionHook,
   priority = false,
   size = "md",
 }: KikoProps) {
   const reduce = useReducedMotion();
-  const resolved: KikoState =
-    slot === "confirmation" && state === "idle" ? "celebrate" : state;
+  const resolved = state ?? slotPose[slot];
+  const pose = poseSrc[resolved];
 
   return (
     <div
       data-kiko-slot={slot}
       data-state={resolved}
-      data-kiko-motion={
-        motionHook ? `${motionHook.kind}:${motionHook.src}` : "css-framer"
-      }
       className={cn(
-        "relative mx-auto select-none",
+        "pointer-events-none relative select-none",
         sizeClass[size],
         className
       )}
     >
-      <div className="pointer-events-none absolute inset-[-18%] rounded-full bg-[radial-gradient(circle_at_50%_45%,color-mix(in_srgb,var(--amber)_38%,transparent),transparent_64%)] blur-2xl" />
       <motion.div
         className="relative"
         animate={
           reduce
-            ? poses[resolved]
-            : {
-                ...poses[resolved],
-                y:
-                  resolved === "idle"
-                    ? [0, -9, 0]
-                    : resolved === "think"
-                      ? [0, -5, 0]
-                      : resolved === "celebrate"
-                        ? [0, -16, -6]
-                        : poses.point.y,
-              }
+            ? { y: 0 }
+            : resolved === "pensa"
+              ? { y: [0, -5, 0] }
+              : resolved === "celebra"
+                ? { y: [0, -12, -4] }
+                : { y: [0, -8, 0] }
         }
         transition={
           reduce
             ? { duration: 0 }
-            : resolved === "idle" || resolved === "think"
-              ? {
-                  duration: resolved === "think" ? 5.2 : 4.4,
+            : resolved === "celebra"
+              ? { duration: 1.15, repeat: Infinity, ease: "easeInOut" }
+              : {
+                  duration: resolved === "pensa" ? 5 : 4.4,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { type: "spring", stiffness: 220, damping: 16 }
         }
       >
         <Image
-          src="/kiko.png"
-          alt="Kiko, a mascote da Kiko Agency — uma gota de tinta viva"
-          width={411}
-          height={569}
+          src={pose.src}
+          alt={altByState[resolved]}
+          width={pose.w}
+          height={pose.h}
           priority={priority}
           unoptimized
           className="relative h-auto w-full bg-transparent"
         />
-        {!reduce && resolved === "celebrate" ? <Sparkles /> : null}
+        {!reduce && resolved === "celebra" ? <Sparkles /> : null}
       </motion.div>
     </div>
   );
@@ -112,10 +128,10 @@ export function Kiko({
 
 function Sparkles() {
   const dots = [
-    { className: "top-[8%] left-[6%]", delay: 0 },
-    { className: "top-[18%] right-[4%]", delay: 0.12 },
-    { className: "bottom-[22%] left-[2%]", delay: 0.2 },
-    { className: "bottom-[12%] right-[8%]", delay: 0.08 },
+    { className: "top-[8%] left-[8%]", delay: 0 },
+    { className: "top-[16%] right-[6%]", delay: 0.14 },
+    { className: "bottom-[20%] left-[4%]", delay: 0.22 },
+    { className: "bottom-[12%] right-[10%]", delay: 0.08 },
   ];
 
   return (
@@ -128,28 +144,15 @@ function Sparkles() {
             dot.className
           )}
           initial={{ opacity: 0, scale: 0.4 }}
-          animate={{ opacity: [0, 1, 0], scale: [0.4, 1.2, 0.2], y: [-4, -14] }}
+          animate={{ opacity: [0, 1, 0], scale: [0.4, 1.15, 0.2], y: [-4, -12] }}
           transition={{
             duration: 1.1,
             delay: dot.delay,
             repeat: Infinity,
-            repeatDelay: 0.4,
+            repeatDelay: 0.45,
           }}
         />
       ))}
     </div>
-  );
-}
-
-export function KikoMark({ className }: { className?: string }) {
-  return (
-    <Image
-      src="/kiko.svg"
-      alt=""
-      width={28}
-      height={36}
-      unoptimized
-      className={cn("h-8 w-auto", className)}
-    />
   );
 }

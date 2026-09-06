@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Cta } from "@/components/cta";
+import { Kiko } from "@/components/kiko";
 import {
   Field,
   FieldDescription,
@@ -21,12 +22,22 @@ const serviceOptions = [
 ] as const;
 
 export function BookingForm() {
-  const [sent, setSent] = useState(false);
+  const [phase, setPhase] = useState<"edit" | "submit" | "done">("edit");
   const [service, setService] = useState("landing");
 
-  if (sent) {
+  if (phase === "submit") {
+    return (
+      <div className="flex flex-col items-center gap-5 py-8 text-center">
+        <Kiko slot="submit" state="pensa" size="md" />
+        <p className="text-sm text-muted-foreground">A confirmar neste ecrã…</p>
+      </div>
+    );
+  }
+
+  if (phase === "done") {
     return (
       <div className="flex flex-col items-center gap-6 py-6 text-center">
+        <Kiko slot="confirmation" state="celebra" size="md" />
         <div className="flex max-w-md flex-col gap-3">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Pedido de call registado aqui.
@@ -40,7 +51,7 @@ export function BookingForm() {
           <Cta
             variant="ctaOutline"
             className="w-full sm:w-auto"
-            onClick={() => setSent(false)}
+            onClick={() => setPhase("edit")}
           >
             Novo pedido
           </Cta>
@@ -57,7 +68,8 @@ export function BookingForm() {
       className="flex flex-col gap-8"
       onSubmit={(event) => {
         event.preventDefault();
-        setSent(true);
+        setPhase("submit");
+        window.setTimeout(() => setPhase("done"), 800);
       }}
     >
       <FieldGroup>

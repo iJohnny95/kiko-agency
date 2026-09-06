@@ -3,6 +3,7 @@ import { FaqSection } from "@/components/faq-section";
 import { HomeHero } from "@/components/hero";
 import { ServiceIcon } from "@/components/icons";
 import { faqSchema, JsonLd } from "@/components/json-ld";
+import { Kiko } from "@/components/kiko";
 import { Reveal } from "@/components/motion-primitives";
 import { ProcessSection } from "@/components/process-section";
 import { Eyebrow, Section } from "@/components/section";
@@ -27,22 +28,36 @@ export default function HomePage() {
               <span className="text-gradient">clareza que converte</span>.
             </h2>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-3">
-            {services.map((service, index) => (
-              <Reveal key={service.slug} delay={index * 0.08}>
-                <Surface>
-                  <ServiceIcon name={service.icon} className="text-foreground" />
-                  <h3 className="text-2xl font-semibold tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted-foreground">
-                    {service.summary}
-                  </p>
-                </Surface>
-              </Reveal>
-            ))}
+          <div className="relative">
+            <Kiko
+              slot="services"
+              state="aponta"
+              size="sm"
+              className="absolute -top-6 -left-2 z-10 hidden md:block lg:-left-8"
+            />
+            <div className="grid gap-4 md:grid-cols-3">
+              {services.map((service, index) => (
+                <Reveal key={service.slug} delay={index * 0.08}>
+                  <Surface>
+                    <ServiceIcon name={service.icon} className="text-foreground" />
+                    <h3 className="text-2xl font-semibold tracking-tight">
+                      {service.title}
+                    </h3>
+                    <p className="leading-relaxed text-muted-foreground">
+                      {service.summary}
+                    </p>
+                  </Surface>
+                </Reveal>
+              ))}
+            </div>
           </div>
-          <Reveal>
+          <Reveal className="flex items-end gap-4">
+            <Kiko
+              slot="services"
+              state="aponta"
+              size="sm"
+              className="md:hidden"
+            />
             <Cta href="/servicos" variant="ctaOutline">
               Ver serviços
             </Cta>

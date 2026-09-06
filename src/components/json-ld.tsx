@@ -15,7 +15,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/kiko.png`,
+    logo: `${site.url}/kiko/idle.png`,
     description: site.description,
     areaServed: {
       "@type": "Country",

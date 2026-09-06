@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cta } from "@/components/cta";
 import { IconBooking, IconLanding, IconPages } from "@/components/icons";
+import { Kiko } from "@/components/kiko";
 import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { Surface } from "@/components/surface";
@@ -45,6 +46,12 @@ export default function TrabalhoPage() {
             Ainda não há projectos públicos. A grelha abaixo é um padrão de
             collage — sem capturas de clientes fictícios.
           </p>
+          <Kiko
+            slot="trabalho"
+            state="idle"
+            size="sm"
+            className="opacity-80"
+          />
         </Reveal>
       </Section>
       <Section className="pb-12">

@@ -88,4 +88,4 @@ Não commite a pasta `.netlify` (já está no `.gitignore`). Não coloque segred
 - Nome: Kiko Agency
 - Serviços: landing pages, sites multi-página, agendamento/marcações
 - UI: PT-PT
-- Mascote: Kiko — em standby neste passo (sem slots visíveis)
+- Mascote: Kiko Evolution 3 (gota de tinta 3D) — poses por secção (`data-kiko-slot` / `data-state`); sem mascote no header/footer

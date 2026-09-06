@@ -1,6 +1,7 @@
 "use client";
 
 import { Cta } from "@/components/cta";
+import { Kiko } from "@/components/kiko";
 import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { WorkCollage } from "@/components/work-collage";
@@ -34,9 +35,23 @@ export function HomeHero() {
               Ver serviços
             </Cta>
           </div>
+          <Kiko
+            slot="hero"
+            state="idle"
+            size="sm"
+            priority
+            className="self-start lg:hidden"
+          />
         </Reveal>
-        <Reveal delay={0.1} className="lg:pt-2">
+        <Reveal delay={0.1} className="relative lg:pt-2">
           <WorkCollage />
+          <Kiko
+            slot="hero"
+            state="idle"
+            size="md"
+            priority
+            className="absolute -bottom-3 -left-4 hidden drop-shadow-[0_18px_30px_rgba(0,0,0,0.45)] lg:block"
+          />
         </Reveal>
       </div>
     </Section>
