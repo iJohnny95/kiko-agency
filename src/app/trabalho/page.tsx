@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { Surface } from "@/components/surface";
 import { Badge } from "@/components/ui/badge";
+import { WorkCollage } from "@/components/work-collage";
 import { pages } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ const reserved = [
   {
     title: "Site — várias páginas",
     icon: IconPages,
-    note: "Espaço para um site com navegação e, se fizer sentido, formulário. Sem mockups de clientes fictícios.",
+    note: "Espaço para um site com navegação e, se fizer sentido, formulário.",
   },
   {
     title: "Marcações",
@@ -36,13 +37,19 @@ export default function TrabalhoPage() {
       <Section className="pt-16 pb-10 md:pt-24">
         <Reveal className="flex max-w-2xl flex-col gap-5">
           <Eyebrow>Trabalho</Eyebrow>
-          <h1 className="text-4xl leading-[1.08] md:text-6xl">
-            {pages.trabalho.h1}
+          <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl">
+            Trabalho da{" "}
+            <span className="text-gradient">Kiko Agency</span>
           </h1>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Ainda não há projectos públicos nesta página. Preferimos o vazio
-            honesto a capturas e métricas que não existem.
+            Ainda não há projectos públicos. A grelha abaixo é um padrão de
+            collage — sem capturas de clientes fictícios.
           </p>
+        </Reveal>
+      </Section>
+      <Section className="pb-12">
+        <Reveal>
+          <WorkCollage />
         </Reveal>
       </Section>
       <Section className="pb-24">
@@ -52,8 +59,9 @@ export default function TrabalhoPage() {
               <Surface>
                 <item.icon className="text-foreground" />
                 <Badge variant="outline">Por publicar</Badge>
-                <h2 className="font-heading text-xl md:text-2xl">{item.title}</h2>
-                <div className="aspect-[4/3] rounded-xl bg-[linear-gradient(145deg,color-mix(in_srgb,var(--navy)_8%,transparent),color-mix(in_srgb,var(--amber)_18%,transparent))]" />
+                <h2 className="text-xl font-semibold tracking-tight">
+                  {item.title}
+                </h2>
                 <p className="leading-relaxed text-muted-foreground">
                   {item.note}
                 </p>

@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-instrument);
+  --font-heading: var(--font-geist-sans);
   --color-navy: var(--navy);
   --color-cream: var(--cream);
   --color-amber: var(--amber);
@@ -52,40 +52,40 @@
 }
 
 :root {
-  --navy: #0b1220;
+  --navy: #070a12;
   --cream: #f4efe6;
   --amber: #e8a87c;
-  --background: #f4efe6;
-  --foreground: #0b1220;
-  --card: color-mix(in srgb, #fffaf3 72%, #f4efe6);
-  --card-foreground: #0b1220;
-  --popover: #f8f4ed;
-  --popover-foreground: #0b1220;
-  --primary: #0b1220;
-  --primary-foreground: #f4efe6;
-  --secondary: #e8dfd2;
-  --secondary-foreground: #0b1220;
-  --muted: #ebe4d8;
-  --muted-foreground: #4a5160;
+  --background: #070a12;
+  --foreground: #f4efe6;
+  --card: #10151f;
+  --card-foreground: #f4efe6;
+  --popover: #10151f;
+  --popover-foreground: #f4efe6;
+  --primary: #f4efe6;
+  --primary-foreground: #070a12;
+  --secondary: #161c28;
+  --secondary-foreground: #f4efe6;
+  --muted: #161c28;
+  --muted-foreground: #9aa3b5;
   --accent: #e8a87c;
-  --accent-foreground: #0b1220;
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: color-mix(in srgb, #0b1220 10%, transparent);
-  --input: color-mix(in srgb, #0b1220 14%, transparent);
+  --accent-foreground: #070a12;
+  --destructive: oklch(0.65 0.2 25);
+  --border: color-mix(in srgb, #f4efe6 12%, transparent);
+  --input: color-mix(in srgb, #f4efe6 16%, transparent);
   --ring: #e8a87c;
-  --chart-1: #0b1220;
-  --chart-2: #e8a87c;
-  --chart-3: #3d4553;
-  --chart-4: #e8dfd2;
-  --chart-5: #f4efe6;
-  --radius: 0.75rem;
-  --sidebar: #f8f4ed;
-  --sidebar-foreground: #0b1220;
-  --sidebar-primary: #0b1220;
-  --sidebar-primary-foreground: #f4efe6;
-  --sidebar-accent: #e8dfd2;
-  --sidebar-accent-foreground: #0b1220;
-  --sidebar-border: color-mix(in srgb, #0b1220 10%, transparent);
+  --chart-1: #e8a87c;
+  --chart-2: #7eb6ff;
+  --chart-3: #f4efe6;
+  --chart-4: #161c28;
+  --chart-5: #070a12;
+  --radius: 1rem;
+  --sidebar: #10151f;
+  --sidebar-foreground: #f4efe6;
+  --sidebar-primary: #e8a87c;
+  --sidebar-primary-foreground: #070a12;
+  --sidebar-accent: #161c28;
+  --sidebar-accent-foreground: #f4efe6;
+  --sidebar-border: color-mix(in srgb, #f4efe6 12%, transparent);
   --sidebar-ring: #e8a87c;
 }
 
@@ -102,34 +102,23 @@
     @apply bg-background text-foreground antialiased overflow-x-clip;
     background-image:
       radial-gradient(
-        90rem 40rem at 10% -10%,
-        color-mix(in srgb, var(--amber) 12%, transparent),
-        transparent 55%
+        70rem 36rem at 8% -12%,
+        color-mix(in srgb, #7eb6ff 16%, transparent),
+        transparent 58%
       ),
       radial-gradient(
-        70rem 36rem at 110% 8%,
-        color-mix(in srgb, var(--navy) 6%, transparent),
-        transparent 50%
+        50rem 28rem at 92% 4%,
+        color-mix(in srgb, var(--amber) 14%, transparent),
+        transparent 52%
       );
-  }
-
-  body::after {
-    content: "";
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   h1,
   h2,
   h3 {
-    font-family: var(--font-heading), ui-serif, Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.028em;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.04em;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -144,5 +133,22 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background-image: linear-gradient(
+      105deg,
+      #7eb6ff 0%,
+      #e8a87c 48%,
+      #f4efe6 100%
+    );
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-cta-gradient {
+    background-image: linear-gradient(105deg, #7eb6ff 0%, #e8a87c 100%);
   }
 }

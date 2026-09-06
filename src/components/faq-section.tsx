@@ -17,18 +17,19 @@ export function FaqSection() {
         <Reveal className="flex max-w-md flex-col gap-5">
           <Eyebrow>Perguntas</Eyebrow>
           <h2 className="text-3xl leading-tight md:text-5xl">
-            Respostas curtas. Sem números inventados.
+            Preço, prazo e o que{" "}
+            <span className="text-gradient">não inventamos</span>.
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Bloco FAQ com schema FAQPage. Os preços e prazos ficam na proposta
-            — não neste texto.
+            FAQ com schema FAQPage. O preço sai da proposta depois do brief —
+            sem tabela de montra.
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <Accordion>
             {faqs.map((item) => (
               <AccordionItem key={item.q} value={item.q}>
-                <AccordionTrigger className="font-heading py-4 text-left text-lg font-normal hover:no-underline">
+                <AccordionTrigger className="py-4 text-left text-lg font-medium hover:no-underline">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">

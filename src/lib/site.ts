@@ -38,7 +38,7 @@ export const pages = {
     title: "Sobre a Kiko Agency",
     h1: "Sobre a Kiko Agency",
     description:
-      "Estúdio em Portugal. Sites high-end com direção editorial — e o Kiko, uma gota de tinta viva.",
+      "Estúdio em Portugal. Sites high-end com direção editorial — brief, proposta, entrega.",
   },
   contacto: {
     title: "Contacto",
@@ -114,26 +114,65 @@ export const processSteps = [
   },
 ] as const;
 
+export const stats = [
+  { value: "3", label: "Formatos de serviço" },
+  { value: "0", label: "Casos públicos — ainda" },
+  { value: "3", label: "Passos: brief, proposta, entrega" },
+  { value: "PT", label: "Cópia e estúdio em Portugal" },
+] as const;
+
+export const collageTiles = [
+  { id: "landing", label: "Landing", tone: "amber", span: "lg" },
+  { id: "multi", label: "Multi-página", tone: "navy", span: "md" },
+  { id: "book", label: "Marcações", tone: "mist", span: "md" },
+  { id: "sobre", label: "Sobre", tone: "navy", span: "sm" },
+  { id: "prova", label: "Prova", tone: "amber", span: "sm" },
+  { id: "call", label: "Call", tone: "mist", span: "sm" },
+] as const;
+
+export const testimonials = [
+  {
+    title: "Depoimento reservado",
+    body: "Quando um cliente autorizar, o testemunho fica aqui — com nome, negócio e o que mudou. Até lá, o espaço fica vazio de propósito.",
+  },
+  {
+    title: "Caso reservado",
+    body: "Um projecto publicado, com contexto observável. Sem percentagens inventadas nem «+300% de conversão».",
+  },
+  {
+    title: "Marca reservada",
+    body: "Logótipos só com autorização. Não há fila de marcas fictícias nesta página.",
+  },
+] as const;
+
 export const faqs = [
   {
     q: "O que faz a Kiko Agency?",
     a: "Sites high-end para negócios em Portugal: landing pages, sites multi-página (com ou sem formulário) e fluxos de agendamento. O critério é o mesmo — o visitante percebe a oferta e sabe o próximo passo.",
   },
   {
-    q: "Trabalham só em Portugal?",
-    a: "O estúdio e o domínio (kiko-agency.pt) são de Portugal. A cópia deste site está em português europeu. Projectos noutros mercados podem entrar na conversa — sem fingir uma rede internacional.",
+    q: "Quanto custa um site?",
+    a: "Ainda não há tabela pública nem um «a partir de» de montra. O preço sai da proposta, depois do brief: número de páginas, formulário ou marcações, prazo e o que fica de fora. Landing, multi-página e agendamento têm âmbitos diferentes — não se cotam iguais.",
   },
   {
-    q: "Quanto custa um site?",
-    a: "Ainda não há tabela pública. O preço sai da proposta, depois do brief: páginas, formulários, prazo e o que fica de fora. Não inventamos «a partir de» neste wireframe.",
+    q: "O que está incluído no preço?",
+    a: "O que estiver escrito na proposta. Em regra: estrutura, páginas combinadas, estados de formulário se fizerem parte, e publicação. Foto, copy longa, anúncios ou manutenção não entram por omissão.",
+  },
+  {
+    q: "Há mensalidade?",
+    a: "Este site não vende hosting nem retainer. Se no futuro existir manutenção, aparece como linha própria na proposta — não escondida no valor do site.",
   },
   {
     q: "Quanto tempo demora?",
     a: "Depende do âmbito. O calendário fica escrito na proposta — não num prazo genérico de marketing.",
   },
   {
+    q: "Trabalham só em Portugal?",
+    a: "O estúdio e o domínio (kiko-agency.pt) são de Portugal. A cópia deste site está em português europeu. Projectos noutros mercados podem entrar na conversa — sem fingir uma rede internacional.",
+  },
+  {
     q: "Os formulários deste site já enviam mensagens?",
-    a: "Não. Contacto e Marcar call são stubs: validam no browser e mostram a confirmação com o Kiko. Quando o envio e o calendário existirem, usam os mesmos ecrãs.",
+    a: "Não. Contacto e Marcar call são stubs: validam no browser e mostram uma confirmação local. Quando o envio e o calendário existirem, usam os mesmos ecrãs.",
   },
   {
     q: "O que acontece depois da call?",

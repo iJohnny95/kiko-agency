@@ -108,8 +108,8 @@ export function IconQuote({ className, title = "Depoimento" }: IconProps) {
     <Frame className={className} title={title}>
       <path d="M10 32c0-10 6-18 14-20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       <path d="M24 32c0-10 6-18 14-20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <circle cx="16" cy="30" r="5.5" fill="#0B1220" />
-      <circle cx="30" cy="30" r="5.5" fill="#0B1220" />
+      <circle cx="16" cy="30" r="5.5" fill="currentColor" />
+      <circle cx="30" cy="30" r="5.5" fill="currentColor" />
       <circle cx="17.5" cy="28.5" r="1.6" fill="#E8A87C" />
       <circle cx="31.5" cy="28.5" r="1.6" fill="#E8A87C" />
     </Frame>
@@ -134,7 +134,7 @@ export function IconMark({ className, title = "Logótipo" }: IconProps) {
       <circle cx="24" cy="24" r="14" stroke="currentColor" strokeWidth="1.6" />
       <path
         d="M24 13c6 6 8 12 0 22C16 25 18 19 24 13Z"
-        fill="#0B1220"
+        fill="currentColor"
       />
       <circle cx="24" cy="20" r="2.2" fill="#E8A87C" />
     </Frame>

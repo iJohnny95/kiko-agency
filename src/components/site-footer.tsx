@@ -1,25 +1,21 @@
 import Link from "next/link";
-import { KikoMark } from "@/components/kiko";
 import { Separator } from "@/components/ui/separator";
 import { navItems, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-foreground/8">
+    <footer className="mt-auto border-t border-white/8">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 sm:px-6 md:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
-          <div className="flex max-w-sm flex-col gap-4">
-            <div className="flex items-center gap-2.5">
-              <KikoMark className="h-8" />
-              <p className="font-heading text-2xl">{site.name}</p>
-            </div>
+          <div className="flex max-w-sm flex-col gap-3">
+            <p className="text-2xl font-semibold tracking-tight">{site.name}</p>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {site.tagline}
             </p>
             <p className="text-sm text-muted-foreground">{site.domain}</p>
           </div>
           <nav aria-label="Rodapé">
-            <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-7 sm:gap-y-2">
+            <ul className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-x-7">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link

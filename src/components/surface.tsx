@@ -11,7 +11,7 @@ export function Surface({
   return (
     <div
       className={cn(
-        "group/surface flex h-full flex-col gap-5 rounded-2xl border border-foreground/8 bg-card/65 p-6 shadow-[0_1px_0_color-mix(in_srgb,white_55%,transparent)_inset,0_24px_60px_-36px_color-mix(in_srgb,var(--navy)_28%,transparent)] backdrop-blur-md transition-[transform,box-shadow] duration-500 ease-out md:p-7",
+        "flex h-full flex-col gap-5 rounded-3xl border border-white/8 bg-card/80 p-6 shadow-[0_24px_60px_-36px_rgba(0,0,0,0.65)] backdrop-blur-md md:p-8",
         className
       )}
     >

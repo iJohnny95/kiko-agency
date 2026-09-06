@@ -17,11 +17,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "h-12 rounded-full bg-primary px-7 text-[0.95rem] tracking-[0.02em] text-primary-foreground shadow-[0_1px_0_color-mix(in_srgb,var(--cream)_18%,transparent)_inset] hover:bg-primary/88",
+        cta: "h-12 rounded-full bg-cta-gradient px-7 text-[0.95rem] font-semibold tracking-[0.01em] text-[#070a12] hover:brightness-110",
         ctaOutline:
-          "h-12 rounded-full border-foreground/15 bg-background/50 px-7 text-[0.95rem] tracking-[0.02em] text-foreground backdrop-blur-sm hover:border-foreground/30 hover:bg-secondary/80",
+          "h-12 rounded-full border-white/20 bg-white/4 px-7 text-[0.95rem] font-medium tracking-[0.01em] text-foreground hover:border-white/40 hover:bg-white/8",
         ctaInverse:
-          "h-12 rounded-full bg-primary-foreground px-7 text-[0.95rem] tracking-[0.02em] text-primary hover:bg-primary-foreground/90",
+          "h-12 rounded-full bg-foreground px-7 text-[0.95rem] font-semibold text-background hover:bg-foreground/90",
       },
       size: {
         default:

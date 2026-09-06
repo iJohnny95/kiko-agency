@@ -1,12 +1,12 @@
 import { Cta } from "@/components/cta";
-import { Kiko } from "@/components/kiko";
 import { Section } from "@/components/section";
 
 export default function NotFound() {
   return (
     <Section className="flex flex-1 flex-col items-center justify-center py-24 text-center">
-      <Kiko slot="hero" state="think" size="sm" />
-      <h1 className="mt-6 text-4xl md:text-5xl">Página em falta</h1>
+      <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+        Página em falta
+      </h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
         Este endereço não existe neste site. Volte ao início ou aos serviços.
       </p>

@@ -17,8 +17,9 @@ export default function ServicosPage() {
       <Section className="pt-16 pb-10 md:pt-24">
         <Reveal className="flex max-w-2xl flex-col gap-5">
           <Eyebrow>Serviços</Eyebrow>
-          <h1 className="text-4xl leading-[1.08] md:text-6xl">
-            {pages.servicos.h1}
+          <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl">
+            Landing pages, sites{" "}
+            <span className="text-gradient">multi-página</span> e marcações
           </h1>
           <p className="text-base leading-relaxed text-muted-foreground">
             Três formatos. O detalhe de cada projecto — páginas, copy, prazo —
@@ -32,7 +33,7 @@ export default function ServicosPage() {
             <Reveal key={service.slug} delay={index * 0.08}>
               <Surface className="h-full">
                 <ServiceIcon name={service.icon} className="text-foreground" />
-                <h2 className="font-heading text-2xl md:text-3xl">
+                <h2 className="text-2xl font-semibold tracking-tight">
                   {service.title}
                 </h2>
                 <p className="leading-relaxed text-muted-foreground">

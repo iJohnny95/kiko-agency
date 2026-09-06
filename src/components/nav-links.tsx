@@ -36,9 +36,7 @@ export function NavLinks({
               onClick={onNavigate}
               className={cn(
                 "relative inline-flex min-h-11 items-center tracking-wide transition-colors",
-                stacked
-                  ? "font-heading text-3xl"
-                  : "text-[0.8rem]",
+                stacked ? "text-3xl font-semibold" : "text-[0.85rem] font-medium",
                 active
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"

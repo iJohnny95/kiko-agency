@@ -6,8 +6,9 @@ import { faqSchema, JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion-primitives";
 import { ProcessSection } from "@/components/process-section";
 import { Eyebrow, Section } from "@/components/section";
-import { SocialProof } from "@/components/social-proof";
+import { StatsBand } from "@/components/stats-band";
 import { Surface } from "@/components/surface";
+import { Testimonials } from "@/components/testimonials";
 import { services } from "@/lib/site";
 
 export default function HomePage() {
@@ -15,17 +16,15 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema()} />
       <HomeHero />
-
-      <div className="border-y border-foreground/8 bg-card/35">
-        <SocialProof />
-      </div>
+      <StatsBand />
 
       <Section className="py-20 md:py-28">
         <div className="flex flex-col gap-12">
-          <Reveal className="flex max-w-xl flex-col gap-5">
-            <Eyebrow>O que fazemos</Eyebrow>
+          <Reveal className="flex max-w-2xl flex-col gap-5">
+            <Eyebrow>Serviços</Eyebrow>
             <h2 className="text-3xl leading-tight md:text-5xl">
-              Três formatos, um critério: clareza que converte.
+              Três formatos. Um critério:{" "}
+              <span className="text-gradient">clareza que converte</span>.
             </h2>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-3">
@@ -33,7 +32,7 @@ export default function HomePage() {
               <Reveal key={service.slug} delay={index * 0.08}>
                 <Surface>
                   <ServiceIcon name={service.icon} className="text-foreground" />
-                  <h3 className="font-heading text-2xl md:text-3xl">
+                  <h3 className="text-2xl font-semibold tracking-tight">
                     {service.title}
                   </h3>
                   <p className="leading-relaxed text-muted-foreground">
@@ -51,29 +50,32 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <div className="border-t border-foreground/8">
+      <div className="border-t border-white/8">
         <ProcessSection />
       </div>
 
-      <div className="border-y border-foreground/8">
+      <div className="border-t border-white/8 bg-card/25">
+        <Testimonials />
+      </div>
+
+      <div className="border-t border-white/8">
         <FaqSection />
       </div>
 
-      <div className="bg-primary text-primary-foreground">
+      <div className="border-t border-white/8 bg-card/40">
         <Section className="py-20 md:py-24">
           <Reveal className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div className="flex max-w-xl flex-col gap-3">
               <h2 className="text-3xl leading-tight md:text-5xl">
-                Uma call. Sem pitch longo.
+                Uma call.{" "}
+                <span className="text-gradient">Sem pitch longo.</span>
               </h2>
-              <p className="text-sm leading-relaxed text-primary-foreground/70">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 Pedido de marcação — ainda um stub. Serve para ensaiar o
                 caminho até à conversa.
               </p>
             </div>
-            <Cta href="/marcar-call" variant="ctaInverse">
-              Marcar call
-            </Cta>
+            <Cta href="/marcar-call">Marcar call</Cta>
           </Reveal>
         </Section>
       </div>

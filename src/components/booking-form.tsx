@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Cta } from "@/components/cta";
-import { Kiko, type KikoState } from "@/components/kiko";
 import {
   Field,
   FieldDescription,
@@ -24,21 +23,25 @@ const serviceOptions = [
 export function BookingForm() {
   const [sent, setSent] = useState(false);
   const [service, setService] = useState("landing");
-  const [state, setState] = useState<KikoState>("think");
 
   if (sent) {
     return (
       <div className="flex flex-col items-center gap-6 py-6 text-center">
-        <Kiko slot="confirmation" state="celebrate" size="md" />
         <div className="flex max-w-md flex-col gap-3">
-          <h2 className="text-3xl md:text-4xl">Pedido de call registado aqui.</h2>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            Pedido de call registado aqui.
+          </h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Ainda não há calendário ligado. Este ecrã é o sítio da confirmação
-            — com o Kiko — para quando o pedido passar a chegar de verdade.
+            para quando o pedido passar a chegar de verdade.
           </p>
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Cta variant="ctaOutline" className="w-full sm:w-auto" onClick={() => setSent(false)}>
+          <Cta
+            variant="ctaOutline"
+            className="w-full sm:w-auto"
+            onClick={() => setSent(false)}
+          >
             Novo pedido
           </Cta>
           <Cta href="/servicos" variant="ctaOutline" className="w-full sm:w-auto">
@@ -66,7 +69,6 @@ export function BookingForm() {
             required
             autoComplete="name"
             className="h-12 px-3.5"
-            onFocus={() => setState("think")}
           />
         </Field>
         <Field>
@@ -78,7 +80,6 @@ export function BookingForm() {
             required
             autoComplete="email"
             className="h-12 px-3.5"
-            onFocus={() => setState("think")}
           />
         </Field>
         <Field>
@@ -112,7 +113,6 @@ export function BookingForm() {
             name="horario"
             className="h-12 px-3.5"
             placeholder="Ex.: terças de manhã, hora de Lisboa"
-            onFocus={() => setState("think")}
           />
         </Field>
         <Field>
@@ -123,23 +123,15 @@ export function BookingForm() {
             rows={5}
             className="min-h-28 px-3.5"
             placeholder="O que está a vender, se já tem site, e o prazo."
-            onFocus={() => setState("think")}
           />
           <FieldDescription>
             Stub de marcação: não cria evento nem envia e-mail.
           </FieldDescription>
         </Field>
       </FieldGroup>
-      <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end">
-        <Kiko slot="submit" state={state} size="sm" />
-        <Cta
-          type="submit"
-          className="w-full sm:w-auto"
-          onHoverChange={(hovered) => setState(hovered ? "point" : "think")}
-        >
-          Pedir call
-        </Cta>
-      </div>
+      <Cta type="submit" className="w-full sm:w-auto">
+        Pedir call
+      </Cta>
     </form>
   );
 }

@@ -1,6 +1,6 @@
 # Kiko Agency
 
-Site wireframe da [Kiko Agency](https://kiko-agency.pt) — Next.js (App Router), TypeScript e Tailwind. Cópia em português de Portugal. Paleta: navy `#0B1220`, cream `#F4EFE6`, coral-âmbar `#E8A87C`.
+Site da [Kiko Agency](https://kiko-agency.pt) — Next.js (App Router), TypeScript e Tailwind. Cópia em português de Portugal. Paleta: near-black `#070A12`, cream `#F4EFE6`, coral-âmbar `#E8A87C` e azul-acento `#7EB6FF`.
 
 Lema provisório: «Tinta com direção. Sites que convertem.»
 
@@ -11,13 +11,11 @@ Lema provisório: «Tinta com direção. Sites que convertem.»
 | `/` | Hero (H1 SEO + Marcar call + Ver serviços), prova social, serviços, Brief → Proposta → Entrega, FAQ |
 | `/servicos` | Landing pages, sites multi-página (com/sem formulário), agendamento |
 | `/trabalho` | Portefólio reservado — sem casos inventados |
-| `/sobre` | Estúdio + mascote Kiko |
+| `/sobre` | Estúdio — brief, proposta, entrega |
 | `/contacto` | Formulário stub (confirmação local) |
 | `/marcar-call` | Pedido de call stub (confirmação local) |
 
-O Kiko (gota de tinta viva) aparece no hero, junto ao envio dos formulários e na confirmação. PNG com alpha (`public/kiko.png`) e SVG (`public/kiko.svg`). O componente usa `data-kiko-slot` e `data-state` (`idle` / `point` / `think` / `celebrate`) — flutua, aponta nos CTAs e celebra no sucesso. Gancho `motion` reservado para Rive/Lottie.
-
-Há schema stub de Organization, Service e FAQPage. Os formulários **não enviam** dados.
+Direção visual: fundo navy quase preto, tipografia sans forte, acento em gradiente nos CTAs e palavras-chave, grelha de trabalho no hero (sem mascote neste passo). Schema stub de Organization, Service e FAQPage. Os formulários **não enviam** dados.
 
 Os formulários **não enviam** dados. São protótipos de fluxo.
 
@@ -90,4 +88,4 @@ Não commite a pasta `.netlify` (já está no `.gitignore`). Não coloque segred
 - Nome: Kiko Agency
 - Serviços: landing pages, sites multi-página, agendamento/marcações
 - UI: PT-PT
-- Mascote: Kiko — geometria macia, corpo navy, pontas âmbar, um olho a piscar
+- Mascote: Kiko — em standby neste passo (sem slots visíveis)
