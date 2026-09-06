@@ -15,9 +15,57 @@ import {
 } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+export const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Reveal({
+  children,
+  className,
+  delay = 0,
+  when = "view",
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  when?: "view" | "mount";
+}) {
+  const reduce = useReducedMotion();
+  const hidden = reduce
+    ? { opacity: 1, y: 0, filter: "blur(0px)" }
+    : { opacity: 0, y: 28, filter: "blur(8px)" };
+  const visible = { opacity: 1, y: 0, filter: "blur(0px)" };
+  const transition = {
+    duration: reduce ? 0 : 0.75,
+    delay: reduce ? 0 : delay,
+    ease,
+  };
+
+  if (when === "mount") {
+    return (
+      <motion.div
+        className={className}
+        initial={hidden}
+        animate={visible}
+        transition={transition}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      className={className}
+      initial={hidden}
+      whileInView={visible}
+      viewport={{ once: true, amount: 0.2, margin: "0px 0px -6% 0px" }}
+      transition={transition}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function Stagger({
   children,
   className,
   delay = 0,
@@ -31,10 +79,46 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px -8% 0px" }}
-      transition={{ duration: reduce ? 0 : 0.7, delay, ease }}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.18, margin: "0px 0px -6% 0px" }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: reduce
+            ? { staggerChildren: 0, delayChildren: 0 }
+            : { staggerChildren: 0.1, delayChildren: delay },
+        },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerItem({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      variants={{
+        hidden: reduce
+          ? { opacity: 1, y: 0 }
+          : { opacity: 0, y: 26, filter: "blur(6px)" },
+        show: {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          transition: { duration: reduce ? 0 : 0.65, ease },
+        },
+      }}
     >
       {children}
     </motion.div>
@@ -115,8 +199,10 @@ export function Magnetic({
   return (
     <motion.div
       ref={ref}
-      className={cn("inline-flex", className)}
+      className={cn("inline-flex max-w-full", className)}
       style={{ x: springX, y: springY }}
+      whileHover={reduce ? undefined : { scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 320, damping: 20 }}
       onMouseEnter={onEnter}
       onMouseMove={onMove}
       onMouseLeave={onLeave}

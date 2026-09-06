@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cta } from "@/components/cta";
 import { ServiceIcon } from "@/components/icons";
-import { Reveal } from "@/components/motion-primitives";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { Surface } from "@/components/surface";
 import { pages, services } from "@/lib/site";
@@ -28,9 +28,9 @@ export default function ServicosPage() {
         </Reveal>
       </Section>
       <Section className="pb-24">
-        <div className="grid gap-5 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <Reveal key={service.slug} delay={index * 0.08}>
+        <Stagger className="grid gap-5 lg:grid-cols-3">
+          {services.map((service) => (
+            <StaggerItem key={service.slug} className="h-full">
               <Surface className="h-full">
                 <ServiceIcon name={service.icon} className="text-foreground" />
                 <h2 className="text-2xl font-semibold tracking-tight">
@@ -55,9 +55,9 @@ export default function ServicosPage() {
                   </Cta>
                 </div>
               </Surface>
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Section>
     </>
   );

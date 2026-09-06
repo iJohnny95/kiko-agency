@@ -35,18 +35,15 @@ export function NavLinks({
               href={item.href}
               onClick={onNavigate}
               className={cn(
-                "relative inline-flex min-h-11 items-center tracking-wide transition-colors",
+                "relative inline-flex min-h-11 items-center tracking-wide transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:bg-accent after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.22,1,0.36,1)]",
                 stacked ? "text-3xl font-semibold" : "text-[0.85rem] font-medium",
                 active
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-foreground after:scale-x-100"
+                  : "text-muted-foreground after:scale-x-0 hover:text-foreground hover:after:scale-x-100"
               )}
               aria-current={active ? "page" : undefined}
             >
               {item.label}
-              {active ? (
-                <span className="absolute inset-x-0 -bottom-1 h-px bg-accent" />
-              ) : null}
             </Link>
           </li>
         );

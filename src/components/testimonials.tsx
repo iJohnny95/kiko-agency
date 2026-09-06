@@ -1,5 +1,5 @@
 import { IconQuote } from "@/components/icons";
-import { Reveal } from "@/components/motion-primitives";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { Surface } from "@/components/surface";
 import { Badge } from "@/components/ui/badge";
@@ -19,9 +19,9 @@ export function Testimonials() {
             ser mostrados.
           </p>
         </Reveal>
-        <div className="grid gap-4 md:grid-cols-3">
-          {testimonials.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.08}>
+        <Stagger className="grid gap-4 md:grid-cols-3">
+          {testimonials.map((item) => (
+            <StaggerItem key={item.title}>
               <Surface>
                 <IconQuote className="text-foreground" />
                 <Badge variant="outline">Reservado</Badge>
@@ -32,9 +32,9 @@ export function Testimonials() {
                   {item.body}
                 </p>
               </Surface>
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </Section>
   );

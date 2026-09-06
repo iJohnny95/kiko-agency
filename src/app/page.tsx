@@ -3,7 +3,7 @@ import { FaqSection } from "@/components/faq-section";
 import { HomeHero } from "@/components/hero";
 import { ServiceIcon } from "@/components/icons";
 import { faqSchema, JsonLd } from "@/components/json-ld";
-import { Reveal } from "@/components/motion-primitives";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { ProcessSection } from "@/components/process-section";
 import { Eyebrow, Section } from "@/components/section";
 import { StatsBand } from "@/components/stats-band";
@@ -27,9 +27,9 @@ export default function HomePage() {
               <span className="text-gradient">clareza que converte</span>.
             </h2>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-3">
-            {services.map((service, index) => (
-              <Reveal key={service.slug} delay={index * 0.08}>
+          <Stagger className="grid gap-4 md:grid-cols-3">
+            {services.map((service) => (
+              <StaggerItem key={service.slug}>
                 <Surface>
                   <ServiceIcon name={service.icon} className="text-foreground" />
                   <h3 className="text-2xl font-semibold tracking-tight">
@@ -39,9 +39,9 @@ export default function HomePage() {
                     {service.summary}
                   </p>
                 </Surface>
-              </Reveal>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
           <Reveal>
             <Cta href="/servicos" variant="ctaOutline">
               Ver serviços
