@@ -11,7 +11,7 @@ export function HomeHero() {
   return (
     <Section className="relative flex flex-col justify-center pt-6 pb-10 md:min-h-[calc(100svh-4.5rem)] md:pt-16 md:pb-24">
       <TopoMark />
-      <div className="relative grid min-w-0 items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
+      <div className="relative grid min-w-0 items-center gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="flex min-w-0 flex-col gap-4 md:gap-5">
           <Reveal when="mount" delay={0.02}>
             <p className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/45 px-3 py-1 text-[0.7rem] font-medium tracking-[0.16em] text-foreground/85 uppercase">
@@ -47,11 +47,11 @@ export function HomeHero() {
             </div>
           </Reveal>
         </div>
-        <div className="hidden min-w-0 md:block">
+        <div className="hidden min-w-0 lg:block">
           <WorkCollage />
         </div>
       </div>
-      <div className="relative mt-8 md:hidden">
+      <div className="relative mt-8 lg:hidden">
         <FeaturedStrip />
       </div>
     </Section>

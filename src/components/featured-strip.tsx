@@ -27,7 +27,7 @@ export function FeaturedStrip() {
   };
 
   return (
-    <Reveal className="flex flex-col gap-4 md:hidden">
+    <Reveal className="flex flex-col gap-4 lg:hidden">
       <div className="flex items-center justify-between gap-3">
         <p className="text-[0.68rem] font-medium tracking-[0.2em] text-muted-foreground uppercase">
           Projectos em destaque
@@ -48,7 +48,7 @@ export function FeaturedStrip() {
         {slots.map((slot) => (
           <article
             key={slot.id}
-            className="flex min-h-[148px] w-[82%] min-w-[82%] shrink-0 snap-start flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-[#121212]"
+            className="flex min-h-[160px] w-[min(82%,22rem)] min-w-[min(82%,22rem)] shrink-0 snap-start flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-[#121212] sm:w-[min(46%,22rem)] sm:min-w-[min(46%,22rem)]"
           >
             <span
               aria-hidden
@@ -80,7 +80,7 @@ function StripButton({
       onClick={onClick}
       aria-label={label}
       className={cn(
-        "flex size-9 items-center justify-center rounded-full border border-white/16 text-lg leading-none text-foreground"
+        "flex size-11 items-center justify-center rounded-full border border-white/16 text-lg leading-none text-foreground"
       )}
     >
       {children}

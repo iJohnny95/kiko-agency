@@ -15,7 +15,7 @@ export default function ServicosPage() {
       <Section className="pt-16 pb-4 md:pt-24">
         <Reveal className="flex max-w-2xl flex-col gap-5">
           <Eyebrow>Serviços</Eyebrow>
-          <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl">
+          <h1 className="text-[2rem] leading-[1.12] font-semibold tracking-tight sm:text-4xl md:text-6xl">
             Landing pages, sites{" "}
             <span className="text-gradient">multi-página</span> e marcações
           </h1>

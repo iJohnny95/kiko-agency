@@ -25,7 +25,7 @@ export function MobileNav() {
           <Button
             variant="ghost"
             size="icon"
-            className="size-11 md:hidden"
+            className="size-11 lg:hidden"
           />
         }
       >
@@ -34,7 +34,7 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="w-full max-w-none border-l-foreground/8 bg-background/95 backdrop-blur-xl sm:max-w-sm"
+        className="w-full max-w-none border-l-foreground/8 bg-background/95 pb-[max(1.5rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:max-w-sm"
       >
         <SheetHeader>
           <SheetTitle className="font-heading text-2xl tracking-[-0.04em]">

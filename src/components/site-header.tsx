@@ -40,12 +40,12 @@ export function SiteHeader() {
         compact
           ? "border-white/12 bg-background/85"
           : "border-white/8 bg-background/70",
-        hidden ? "-translate-y-full" : "translate-y-0"
+        hidden ? "max-lg:translate-y-0 lg:-translate-y-full" : "translate-y-0"
       )}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center gap-4 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] sm:px-6 md:px-8">
         <Wordmark />
-        <div className="ml-auto hidden items-center gap-8 md:flex">
+        <div className="ml-auto hidden items-center gap-8 lg:flex">
           <nav aria-label="Principal">
             <NavLinks />
           </nav>
@@ -58,7 +58,7 @@ export function SiteHeader() {
             Marcar call
           </Cta>
         </div>
-        <div className="ml-auto md:hidden">
+        <div className="ml-auto lg:hidden">
           <MobileNav />
         </div>
       </div>

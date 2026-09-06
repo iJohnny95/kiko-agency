@@ -36,7 +36,7 @@ export function ServicesTabs({
           <div
             role="tablist"
             aria-label="Formatos de serviço"
-            className="flex flex-wrap gap-1 border-b border-white/10"
+            className="flex flex-nowrap gap-1 overflow-x-auto border-b border-white/10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {services.map((service) => {
               const selected = service.slug === active;
@@ -51,7 +51,7 @@ export function ServicesTabs({
                   data-active={selected ? "true" : "false"}
                   onClick={() => setActive(service.slug)}
                   className={cn(
-                    "relative z-10 min-h-11 px-4 text-sm font-medium tracking-tight transition-colors md:text-base",
+                    "relative z-10 min-h-11 shrink-0 px-4 text-sm font-medium tracking-tight transition-colors md:text-base",
                     selected
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"

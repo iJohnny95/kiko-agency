@@ -59,5 +59,9 @@ export function Cta({
     </Button>
   );
 
-  return <Magnetic>{button}</Magnetic>;
+  return (
+    <Magnetic className={cn(/w-full/.test(className ?? "") && "flex w-full")}>
+      {button}
+    </Magnetic>
+  );
 }

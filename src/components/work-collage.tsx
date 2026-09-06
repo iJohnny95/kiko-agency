@@ -29,7 +29,7 @@ export function WorkCollage() {
       ref={ref}
       aria-label="Grelha de trabalho reservado"
       style={{ y: drift }}
-      className="-mx-1 flex min-w-0 snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
+      className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2"
     >
       {collageTiles.map((tile, index) => (
         <motion.article
@@ -47,8 +47,8 @@ export function WorkCollage() {
               : { y: -8, transition: { type: "spring", stiffness: 320, damping: 20 } }
           }
           className={cn(
-            "group relative min-h-[200px] w-[78%] min-w-[78%] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 bg-[#121212] p-4 md:w-auto md:min-w-0 md:min-h-[168px] lg:min-h-[176px]",
-            index % 2 === 1 && "md:translate-y-6",
+            "group relative min-h-[180px] min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#121212] p-4 md:min-h-[168px] lg:min-h-[176px]",
+            index % 2 === 1 && "lg:translate-y-6",
             tile.glow &&
               "shadow-[0_0_48px_-12px_rgba(240,138,58,0.55)]"
           )}
