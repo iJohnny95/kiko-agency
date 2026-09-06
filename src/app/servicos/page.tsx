@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Cta } from "@/components/cta";
-import { ServiceIcon } from "@/components/icons";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion-primitives";
+import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
-import { Surface } from "@/components/surface";
-import { pages, services } from "@/lib/site";
+import { ServicesTabs } from "@/components/services-tabs";
+import { pages } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: pages.servicos.title,
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
 export default function ServicosPage() {
   return (
     <>
-      <Section className="pt-16 pb-10 md:pt-24">
+      <Section className="pt-16 pb-4 md:pt-24">
         <Reveal className="flex max-w-2xl flex-col gap-5">
           <Eyebrow>Serviços</Eyebrow>
           <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight md:text-6xl">
@@ -27,38 +25,7 @@ export default function ServicosPage() {
           </p>
         </Reveal>
       </Section>
-      <Section className="pb-24">
-        <Stagger className="grid gap-5 lg:grid-cols-3">
-          {services.map((service) => (
-            <StaggerItem key={service.slug} className="h-full">
-              <Surface className="h-full">
-                <ServiceIcon name={service.icon} className="text-foreground" />
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {service.title}
-                </h2>
-                <p className="leading-relaxed text-muted-foreground">
-                  {service.summary}
-                </p>
-                <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                  {service.includes.map((item) => (
-                    <li
-                      key={item}
-                      className="border-l-2 border-accent pl-3 leading-relaxed"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto pt-2">
-                  <Cta href="/marcar-call" variant="ctaOutline">
-                    Pedir proposta
-                  </Cta>
-                </div>
-              </Surface>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
+      <ServicesTabs heading={false} />
     </>
   );
 }

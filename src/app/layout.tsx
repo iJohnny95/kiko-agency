@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <JsonLd key={String(schema.name)} data={schema} />
         ))}
         <SiteHeader />
-        <main className="flex flex-1 flex-col pb-[calc(5.75rem+env(safe-area-inset-bottom))] md:pb-0">
+        <main className="relative z-10 flex flex-1 flex-col pb-[calc(5.75rem+env(safe-area-inset-bottom))] md:pb-0">
           {children}
         </main>
         <SiteFooter />

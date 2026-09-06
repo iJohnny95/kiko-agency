@@ -1,15 +1,14 @@
 import { Cta } from "@/components/cta";
 import { FaqSection } from "@/components/faq-section";
 import { HomeHero } from "@/components/hero";
-import { ServiceIcon } from "@/components/icons";
 import { faqSchema, JsonLd } from "@/components/json-ld";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion-primitives";
+import { LogoStrip } from "@/components/logo-strip";
+import { Reveal } from "@/components/motion-primitives";
 import { ProcessSection } from "@/components/process-section";
-import { Eyebrow, Section } from "@/components/section";
+import { Section } from "@/components/section";
+import { ServicesTabs } from "@/components/services-tabs";
 import { StatsBand } from "@/components/stats-band";
-import { Surface } from "@/components/surface";
 import { Testimonials } from "@/components/testimonials";
-import { services } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -17,38 +16,8 @@ export default function HomePage() {
       <JsonLd data={faqSchema()} />
       <HomeHero />
       <StatsBand />
-
-      <Section className="py-20 md:py-28">
-        <div className="flex flex-col gap-12">
-          <Reveal className="flex max-w-2xl flex-col gap-5">
-            <Eyebrow>Serviços</Eyebrow>
-            <h2 className="text-3xl leading-tight md:text-5xl">
-              Três formatos. Um critério:{" "}
-              <span className="text-gradient">clareza que converte</span>.
-            </h2>
-          </Reveal>
-          <Stagger className="grid gap-4 md:grid-cols-3">
-            {services.map((service) => (
-              <StaggerItem key={service.slug}>
-                <Surface>
-                  <ServiceIcon name={service.icon} className="text-foreground" />
-                  <h3 className="text-2xl font-semibold tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted-foreground">
-                    {service.summary}
-                  </p>
-                </Surface>
-              </StaggerItem>
-            ))}
-          </Stagger>
-          <Reveal>
-            <Cta href="/servicos" variant="ctaOutline">
-              Ver serviços
-            </Cta>
-          </Reveal>
-        </div>
-      </Section>
+      <LogoStrip />
+      <ServicesTabs />
 
       <div className="border-t border-white/8">
         <ProcessSection />

@@ -19,7 +19,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         cta: "h-12 rounded-full bg-cta-gradient px-7 text-[0.95rem] font-semibold tracking-[0.01em] text-[#070a12] transition-[filter,background-position,transform] duration-500 hover:brightness-110 hover:bg-[position:100%_50%]",
         ctaOutline:
-          "h-12 rounded-full border-white/20 bg-white/4 px-7 text-[0.95rem] font-medium tracking-[0.01em] text-foreground transition-all duration-400 hover:border-white/40 hover:bg-white/10",
+          "h-12 rounded-full border-white/50 bg-transparent px-7 text-[0.95rem] font-medium tracking-[0.01em] text-foreground transition-all duration-400 hover:border-white hover:bg-white/10",
         ctaInverse:
           "h-12 rounded-full bg-foreground px-7 text-[0.95rem] font-semibold text-background hover:bg-foreground/90",
       },

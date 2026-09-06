@@ -17,7 +17,7 @@ export function HomeHero() {
             </p>
           </Reveal>
           <Reveal when="mount" delay={0.1}>
-            <h1 className="max-w-xl text-[2rem] leading-[1.15] font-semibold tracking-tight sm:text-[2.25rem] md:text-5xl md:leading-[1.08] lg:text-[3.75rem] lg:leading-[1.05]">
+            <h1 className="max-w-xl text-[2rem] leading-[1.15] font-semibold tracking-tight sm:text-[2.25rem] md:text-5xl md:leading-[1.08] lg:text-[4.25rem] lg:leading-[1.02] xl:text-[4.75rem]">
               Sites <span className="text-gradient">high-end</span> para
               negócios em Portugal
             </h1>

@@ -114,6 +114,15 @@ export const processSteps = [
   },
 ] as const;
 
+export const reservedMarks = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+] as const;
+
 export const stats = [
   { value: "3", label: "Formatos de serviço" },
   { value: "0", label: "Casos públicos — ainda" },
