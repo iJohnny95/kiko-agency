@@ -22,7 +22,8 @@ export function Section({
       ref={ref}
       className={cn(
         "w-full",
-        contained && "mx-auto max-w-6xl px-5 sm:px-6 md:px-8",
+        contained &&
+          "mx-auto max-w-6xl px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] sm:px-6 md:px-8",
         className
       )}
     >

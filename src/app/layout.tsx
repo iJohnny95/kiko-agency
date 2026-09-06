@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { StickyBookCta } from "@/components/sticky-book-cta";
 import { JsonLd, organizationSchema, serviceSchemas } from "@/components/json-ld";
 import { pages, site } from "@/lib/site";
 import "./globals.css";
@@ -45,8 +46,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <JsonLd key={String(schema.name)} data={schema} />
         ))}
         <SiteHeader />
-        <main className="flex flex-1 flex-col">{children}</main>
+        <main className="flex flex-1 flex-col pb-[calc(5.75rem+env(safe-area-inset-bottom))] md:pb-0">
+          {children}
+        </main>
         <SiteFooter />
+        <StickyBookCta />
       </body>
     </html>
   );

@@ -7,35 +7,21 @@ const tones = {
   mist: "from-[#1a2230] to-[#10151f]",
 } as const;
 
-const spans = {
-  lg: "col-span-2 row-span-1 min-h-44 sm:row-span-2 sm:min-h-64",
-  md: "col-span-1 row-span-1 min-h-32 sm:min-h-40",
-  sm: "col-span-1 row-span-1 min-h-28 sm:min-h-32",
-} as const;
-
-const tilts = {
-  landing: "sm:-rotate-1",
-  multi: "sm:rotate-1",
-  book: "sm:-rotate-2",
-  sobre: "sm:rotate-1",
-  prova: "sm:-rotate-1",
-  call: "sm:rotate-2",
-} as const;
-
 export function WorkCollage() {
   return (
     <div
       aria-label="Grelha de trabalho reservado"
-      className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:grid-rows-3 sm:gap-3 sm:px-1"
+      className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-3"
     >
-      {collageTiles.map((tile) => (
+      {collageTiles.map((tile, index) => (
         <article
           key={tile.id}
           className={cn(
-            "relative overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br p-3 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.7)] transition-transform duration-500",
-            tones[tile.tone],
-            spans[tile.span],
-            tilts[tile.id]
+            "relative min-h-[210px] max-h-[220px] min-w-0 overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br p-3 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.7)] transition-transform duration-500",
+            "md:max-h-none md:min-h-44",
+            index === 0 && "lg:min-h-64",
+            "motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.8)]",
+            tones[tile.tone]
           )}
         >
           <div className="mb-3 flex items-center gap-1.5">

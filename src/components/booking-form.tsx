@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Cta } from "@/components/cta";
-import { Kiko } from "@/components/kiko";
 import {
   Field,
   FieldDescription,
@@ -28,7 +27,6 @@ export function BookingForm() {
   if (phase === "submit") {
     return (
       <div className="flex flex-col items-center gap-5 py-8 text-center">
-        <Kiko slot="submit" state="pensa" size="md" />
         <p className="text-sm text-muted-foreground">A confirmar neste ecrã…</p>
       </div>
     );
@@ -37,7 +35,6 @@ export function BookingForm() {
   if (phase === "done") {
     return (
       <div className="flex flex-col items-center gap-6 py-6 text-center">
-        <Kiko slot="confirmation" state="celebra" size="md" />
         <div className="flex max-w-md flex-col gap-3">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Pedido de call registado aqui.

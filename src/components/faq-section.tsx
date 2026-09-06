@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Kiko } from "@/components/kiko";
 import { Reveal } from "@/components/motion-primitives";
 import { Eyebrow, Section } from "@/components/section";
 import { faqs } from "@/lib/site";
@@ -25,7 +24,6 @@ export function FaqSection() {
             FAQ com schema FAQPage. O preço sai da proposta depois do brief —
             sem tabela de montra.
           </p>
-          <Kiko slot="faq" state="faq" size="md" className="mt-2 self-start" />
         </Reveal>
         <Reveal delay={0.08}>
           <Accordion>
