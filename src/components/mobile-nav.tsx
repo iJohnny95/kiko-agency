@@ -37,7 +37,9 @@ export function MobileNav() {
         className="w-full max-w-none border-l-foreground/8 bg-background/95 backdrop-blur-xl sm:max-w-sm"
       >
         <SheetHeader>
-          <SheetTitle className="font-heading text-2xl">{site.name}</SheetTitle>
+          <SheetTitle className="font-heading text-2xl tracking-[-0.04em]">
+            {site.wordmark}
+          </SheetTitle>
           <SheetDescription>Navegação do site.</SheetDescription>
         </SheetHeader>
         <nav className="px-5 pt-4">

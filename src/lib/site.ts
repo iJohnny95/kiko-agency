@@ -1,5 +1,6 @@
 export const site = {
   name: "Kiko Agency",
+  wordmark: "KiKO",
   domain: "kiko-agency.pt",
   url: "https://kiko-agency.pt",
   tagline: "Tinta com direção. Sites que convertem.",
@@ -8,9 +9,8 @@ export const site = {
 } as const;
 
 export const navItems = [
-  { href: "/", label: "Início" },
   { href: "/servicos", label: "Serviços" },
-  { href: "/trabalho", label: "Trabalho" },
+  { href: "/trabalho", label: "Trabalhos" },
   { href: "/sobre", label: "Sobre" },
   { href: "/contacto", label: "Contacto" },
 ] as const;
@@ -131,12 +131,54 @@ export const stats = [
 ] as const;
 
 export const collageTiles = [
-  { id: "landing", label: "Landing", tone: "amber", span: "lg" },
-  { id: "multi", label: "Multi-página", tone: "navy", span: "md" },
-  { id: "book", label: "Marcações", tone: "mist", span: "md" },
-  { id: "sobre", label: "Sobre", tone: "navy", span: "sm" },
-  { id: "prova", label: "Prova", tone: "amber", span: "sm" },
-  { id: "call", label: "Call", tone: "mist", span: "sm" },
+  {
+    id: "landing",
+    mark: "L",
+    title: "Landing com direção",
+    line: "Uma oferta. Um passo.",
+    motif: "wire",
+    glow: true,
+  },
+  {
+    id: "multi",
+    mark: "M",
+    title: "Site multi-página",
+    line: "Navegação clara.",
+    motif: "wave",
+    glow: false,
+  },
+  {
+    id: "book",
+    mark: "A",
+    title: "Marcações",
+    line: "Pedido e confirmação.",
+    motif: "orb",
+    glow: true,
+  },
+  {
+    id: "sobre",
+    mark: "S",
+    title: "Sobre o estúdio",
+    line: "Portugal. PT-PT.",
+    motif: "mesh",
+    glow: false,
+  },
+  {
+    id: "prova",
+    mark: "P",
+    title: "Prova reservada",
+    line: "Quando houver autorização.",
+    motif: "leaf",
+    glow: true,
+  },
+  {
+    id: "call",
+    mark: "C",
+    title: "Call",
+    line: "Brief, não pitch.",
+    motif: "grid",
+    glow: false,
+  },
 ] as const;
 
 export const testimonials = [

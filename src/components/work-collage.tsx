@@ -11,12 +11,6 @@ import { cn } from "@/lib/utils";
 import { collageTiles } from "@/lib/site";
 import { ease } from "@/components/motion-primitives";
 
-const tones = {
-  amber: "from-[#2a2118] to-[#151018]",
-  navy: "from-[#121a2c] to-[#0b1020]",
-  mist: "from-[#1a2230] to-[#10151f]",
-} as const;
-
 export function WorkCollage() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -27,7 +21,7 @@ export function WorkCollage() {
   const drift = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? [0, 0] : [18, -18]
+    reduce ? [0, 0] : [16, -16]
   );
 
   return (
@@ -35,16 +29,16 @@ export function WorkCollage() {
       ref={ref}
       aria-label="Grelha de trabalho reservado"
       style={{ y: drift }}
-      className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-3"
+      className="-mx-1 flex min-w-0 snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
     >
       {collageTiles.map((tile, index) => (
         <motion.article
           key={tile.id}
-          initial={reduce ? false : { opacity: 0, y: 22, scale: 0.98 }}
+          initial={reduce ? false : { opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
-            duration: reduce ? 0 : 0.65,
-            delay: reduce ? 0 : 0.22 + index * 0.07,
+            duration: reduce ? 0 : 0.7,
+            delay: reduce ? 0 : 0.18 + index * 0.07,
             ease,
           }}
           whileHover={
@@ -53,36 +47,112 @@ export function WorkCollage() {
               : { y: -8, transition: { type: "spring", stiffness: 320, damping: 20 } }
           }
           className={cn(
-            "group relative min-h-[210px] max-h-[220px] min-w-0 overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br p-3 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.7)]",
-            "md:max-h-none md:min-h-44",
-            index === 0 && "lg:min-h-64",
-            tones[tile.tone]
+            "group relative min-h-[200px] w-[78%] min-w-[78%] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 bg-[#121212] p-4 md:w-auto md:min-w-0 md:min-h-[168px] lg:min-h-[176px]",
+            index % 2 === 1 && "md:translate-y-6",
+            tile.glow &&
+              "shadow-[0_0_48px_-12px_rgba(240,138,58,0.55)]"
           )}
         >
-          <div className="mb-3 flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-white/25" />
-            <span className="size-1.5 rounded-full bg-white/15" />
-            <span className="size-1.5 rounded-full bg-white/15" />
-            <span className="ml-2 h-1.5 flex-1 rounded-full bg-white/8" />
+          {tile.glow ? (
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-8 -bottom-10 size-36 rounded-full bg-[#f08a3a]/25 blur-3xl"
+            />
+          ) : null}
+          <TileMotif motif={tile.motif} />
+          <div className="relative flex items-center justify-between gap-3">
+            <span className="flex size-7 items-center justify-center rounded-full border border-white/14 text-[0.65rem] font-semibold tracking-wide">
+              {tile.mark}
+            </span>
+            <span className="h-px flex-1 bg-white/10" />
+            <span className="flex gap-1" aria-hidden>
+              <span className="h-1 w-4 rounded-full bg-white/20" />
+              <span className="h-1 w-3 rounded-full bg-white/10" />
+              <span className="h-1 w-3 rounded-full bg-white/10" />
+            </span>
           </div>
-          <motion.div
-            className="flex flex-col gap-2"
-            whileHover={reduce ? undefined : { scale: 1.06 }}
-            transition={{ duration: 0.45, ease }}
-          >
-            <div className="h-2 w-2/3 rounded-full bg-white/20" />
-            <div className="h-2 w-1/2 rounded-full bg-white/10" />
-            <div className="mt-1 grid grid-cols-3 gap-1.5">
-              <div className="aspect-4/3 rounded-lg bg-white/8 transition-transform duration-500 group-hover:scale-105" />
-              <div className="aspect-4/3 rounded-lg bg-white/12 transition-transform duration-500 group-hover:scale-105" />
-              <div className="aspect-4/3 rounded-lg bg-[color-mix(in_srgb,var(--amber)_35%,transparent)] transition-transform duration-500 group-hover:scale-110" />
-            </div>
-          </motion.div>
-          <p className="absolute right-3 bottom-3 text-[0.65rem] tracking-[0.16em] text-white/55 uppercase">
-            {tile.label}
+          <div className="relative mt-8 flex flex-col gap-2">
+            <h3 className="text-[1.05rem] leading-tight font-semibold tracking-tight text-white">
+              {tile.title}
+            </h3>
+            <p className="text-xs text-white/45">{tile.line}</p>
+          </div>
+          <p className="relative mt-6 text-[0.7rem] tracking-wide text-white/55">
+            Por publicar →
           </p>
         </motion.article>
       ))}
     </motion.div>
+  );
+}
+
+function TileMotif({ motif }: { motif: (typeof collageTiles)[number]["motif"] }) {
+  const common = "pointer-events-none absolute inset-0 text-white/10";
+
+  if (motif === "wire") {
+    return (
+      <svg viewBox="0 0 200 160" className={common} aria-hidden>
+        <path d="M20 140 L70 40 L110 90 L160 20" stroke="currentColor" fill="none" />
+        <path d="M40 140 L90 50 L140 110" stroke="currentColor" fill="none" />
+      </svg>
+    );
+  }
+
+  if (motif === "wave") {
+    return (
+      <svg viewBox="0 0 200 160" className={common} aria-hidden>
+        <path
+          d="M20 90c20-18 30-18 50 0s30 18 50 0 30-18 50 0"
+          stroke="currentColor"
+          fill="none"
+        />
+        <path
+          d="M20 110c20-18 30-18 50 0s30 18 50 0 30-18 50 0"
+          stroke="currentColor"
+          fill="none"
+        />
+      </svg>
+    );
+  }
+
+  if (motif === "orb") {
+    return (
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-6 top-8 size-28 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(240,138,58,0.45),transparent_62%)]"
+      />
+    );
+  }
+
+  if (motif === "leaf") {
+    return (
+      <svg viewBox="0 0 200 160" className={cn(common, "text-white/16")} aria-hidden>
+        <path
+          d="M150 20c-40 10-70 48-70 88 28 0 62-22 78-62 6-14 4-20-8-26Z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
+  if (motif === "mesh") {
+    return (
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.35) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      />
+    );
+  }
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-6 rounded-xl border border-white/8"
+    />
   );
 }

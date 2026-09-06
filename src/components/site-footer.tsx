@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { Wordmark } from "@/components/wordmark";
 import { navItems, site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -8,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 sm:px-6 md:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
           <div className="flex max-w-sm flex-col gap-3">
-            <p className="text-2xl font-semibold tracking-tight">{site.name}</p>
+            <Wordmark className="text-2xl" />
             <p className="text-sm leading-relaxed text-muted-foreground">
               {site.tagline}
             </p>

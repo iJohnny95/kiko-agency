@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useReducedMotion } from "motion/react";
 import { Cta } from "@/components/cta";
 import { MobileNav } from "@/components/mobile-nav";
 import { NavLinks } from "@/components/nav-links";
-import { site } from "@/lib/site";
+import { Wordmark } from "@/components/wordmark";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -37,28 +36,29 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b backdrop-blur-xl transition-[transform,background-color,border-color,height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "sticky top-0 z-40 border-b backdrop-blur-xl transition-[transform,background-color,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         compact
           ? "border-white/12 bg-background/85"
           : "border-white/8 bg-background/70",
         hidden ? "-translate-y-full" : "translate-y-0"
       )}
     >
-      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] sm:px-6 md:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-lg font-semibold tracking-tight">
-            {site.name}
-          </span>
-        </Link>
-        <nav className="hidden md:block" aria-label="Principal">
-          <NavLinks />
-        </nav>
-        <div className="flex items-center gap-2">
-          <div className="hidden md:block">
-            <Cta href="/marcar-call" className="min-h-11 px-5 text-sm">
-              Marcar call
-            </Cta>
-          </div>
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center gap-4 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] sm:px-6 md:px-8">
+        <Wordmark />
+        <div className="ml-auto hidden items-center gap-8 md:flex">
+          <nav aria-label="Principal">
+            <NavLinks />
+          </nav>
+          <Cta
+            href="/marcar-call"
+            variant="ctaOutline"
+            arrow
+            className="min-h-10 px-5 text-sm"
+          >
+            Marcar call
+          </Cta>
+        </div>
+        <div className="ml-auto md:hidden">
           <MobileNav />
         </div>
       </div>

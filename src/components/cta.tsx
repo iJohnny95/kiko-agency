@@ -12,6 +12,7 @@ type CtaProps = {
   variant?: "cta" | "ctaOutline" | "ctaInverse";
   className?: string;
   type?: "button" | "submit";
+  arrow?: boolean;
   onHoverChange?: (hovered: boolean) => void;
   onClick?: () => void;
 };
@@ -22,6 +23,7 @@ export function Cta({
   variant = "cta",
   className,
   type = "button",
+  arrow = false,
   onHoverChange,
   onClick,
 }: CtaProps) {
@@ -42,6 +44,7 @@ export function Cta({
       {...hover}
     >
       {children}
+      {arrow ? <span aria-hidden className="ml-1.5">→</span> : null}
     </Button>
   ) : (
     <Button
@@ -52,6 +55,7 @@ export function Cta({
       {...hover}
     >
       {children}
+      {arrow ? <span aria-hidden className="ml-1.5">→</span> : null}
     </Button>
   );
 
