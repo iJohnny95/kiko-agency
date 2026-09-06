@@ -78,7 +78,7 @@ export function WorkCollage() {
             <p className="text-xs text-white/45">{tile.line}</p>
           </div>
           <p className="relative mt-6 text-[0.7rem] tracking-wide text-white/55">
-            Por publicar →
+            Ver projecto →
           </p>
         </motion.article>
       ))}

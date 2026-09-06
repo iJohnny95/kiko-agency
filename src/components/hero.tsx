@@ -1,6 +1,7 @@
 "use client";
 
 import { Cta } from "@/components/cta";
+import { FeaturedStrip } from "@/components/featured-strip";
 import { Reveal } from "@/components/motion-primitives";
 import { Section } from "@/components/section";
 import { WorkCollage } from "@/components/work-collage";
@@ -8,12 +9,12 @@ import { site } from "@/lib/site";
 
 export function HomeHero() {
   return (
-    <Section className="relative flex flex-col justify-center pt-8 pb-16 md:min-h-[calc(100svh-4.5rem)] md:pt-16 md:pb-24">
+    <Section className="relative flex flex-col justify-center pt-6 pb-10 md:min-h-[calc(100svh-4.5rem)] md:pt-16 md:pb-24">
       <TopoMark />
-      <div className="relative grid min-w-0 items-center gap-10 md:grid-cols-2 md:gap-8 lg:gap-12">
-        <div className="flex min-w-0 flex-col gap-5">
+      <div className="relative grid min-w-0 items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12">
+        <div className="flex min-w-0 flex-col gap-4 md:gap-5">
           <Reveal when="mount" delay={0.02}>
-            <p className="inline-flex w-fit items-center gap-2 rounded-full border border-white/16 px-3 py-1 text-[0.7rem] font-medium tracking-[0.16em] text-foreground/80 uppercase">
+            <p className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/45 px-3 py-1 text-[0.7rem] font-medium tracking-[0.16em] text-foreground/85 uppercase">
               <PinIcon />
               Estúdio em Portugal
             </p>
@@ -46,7 +47,12 @@ export function HomeHero() {
             </div>
           </Reveal>
         </div>
-        <WorkCollage />
+        <div className="hidden min-w-0 md:block">
+          <WorkCollage />
+        </div>
+      </div>
+      <div className="relative mt-8 md:hidden">
+        <FeaturedStrip />
       </div>
     </Section>
   );

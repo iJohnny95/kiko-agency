@@ -11,7 +11,7 @@ export const site = {
 export const navItems = [
   { href: "/servicos", label: "Serviços" },
   { href: "/trabalho", label: "Trabalhos" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "/sobre", label: "Sobre nós" },
   { href: "/contacto", label: "Contacto" },
 ] as const;
 
