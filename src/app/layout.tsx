@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { site } from "@/lib/site";
+import { JsonLd, organizationSchema, serviceSchemas } from "@/components/json-ld";
+import { pages, site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,14 +23,20 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kiko-agency.pt"),
+  metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · ${site.tagline}`,
-    template: `%s · ${site.name}`,
+    default: `${pages.home.title} | ${site.name}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   icons: {
-    icon: "/kiko.png",
+    icon: "/kiko.svg",
+    apple: "/kiko.png",
+  },
+  openGraph: {
+    locale: "pt_PT",
+    siteName: site.name,
+    type: "website",
   },
 };
 
@@ -40,6 +47,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <JsonLd data={organizationSchema()} />
+        {serviceSchemas().map((schema) => (
+          <JsonLd key={String(schema.name)} data={schema} />
+        ))}
         <SiteHeader />
         <main className="flex flex-1 flex-col">{children}</main>
         <SiteFooter />

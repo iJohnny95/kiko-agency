@@ -8,14 +8,16 @@ Lema provisório: «Tinta com direção. Sites que convertem.»
 
 | Rota | Conteúdo |
 | --- | --- |
-| `/` | Hero (Marcar call + Ver serviços), prova social, serviços, Brief → Proposta → Entrega |
+| `/` | Hero (H1 SEO + Marcar call + Ver serviços), prova social, serviços, Brief → Proposta → Entrega, FAQ |
 | `/servicos` | Landing pages, sites multi-página (com/sem formulário), agendamento |
 | `/trabalho` | Portefólio reservado — sem casos inventados |
 | `/sobre` | Estúdio + mascote Kiko |
 | `/contacto` | Formulário stub (confirmação local) |
 | `/marcar-call` | Pedido de call stub (confirmação local) |
 
-O Kiko (gota de tinta viva) aparece no hero, junto ao envio dos formulários e na confirmação. O componente `Kiko` aceita `slot` e um gancho `motion` para Rive/Lottie mais tarde; por agora a imagem é estática (`public/kiko.png`).
+O Kiko (gota de tinta viva) aparece no hero, junto ao envio dos formulários e na confirmação. PNG com alpha (`public/kiko.png`) e SVG (`public/kiko.svg`). O componente usa `data-kiko-slot` e `data-state` (`idle` / `point` / `think` / `celebrate`) — flutua, aponta nos CTAs e celebra no sucesso. Gancho `motion` reservado para Rive/Lottie.
+
+Há schema stub de Organization, Service e FAQPage. Os formulários **não enviam** dados.
 
 Os formulários **não enviam** dados. São protótipos de fluxo.
 

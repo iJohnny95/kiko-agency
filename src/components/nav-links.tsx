@@ -8,14 +8,21 @@ import { navItems } from "@/lib/site";
 export function NavLinks({
   onNavigate,
   className,
+  stacked = false,
 }: {
   onNavigate?: () => void;
   className?: string;
+  stacked?: boolean;
 }) {
   const pathname = usePathname();
 
   return (
-    <ul className={cn("flex items-center gap-7", className)}>
+    <ul
+      className={cn(
+        stacked ? "flex flex-col gap-1" : "flex items-center gap-8",
+        className
+      )}
+    >
       {navItems.map((item) => {
         const active =
           item.href === "/"
@@ -28,7 +35,10 @@ export function NavLinks({
               href={item.href}
               onClick={onNavigate}
               className={cn(
-                "text-sm tracking-wide transition-colors",
+                "relative inline-flex min-h-11 items-center tracking-wide transition-colors",
+                stacked
+                  ? "font-heading text-3xl"
+                  : "text-[0.8rem]",
                 active
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -36,6 +46,9 @@ export function NavLinks({
               aria-current={active ? "page" : undefined}
             >
               {item.label}
+              {active ? (
+                <span className="absolute inset-x-0 -bottom-1 h-px bg-accent" />
+              ) : null}
             </Link>
           </li>
         );

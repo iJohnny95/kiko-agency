@@ -1,117 +1,80 @@
-import Link from "next/link";
-import { Kiko } from "@/components/kiko";
+import { Cta } from "@/components/cta";
+import { FaqSection } from "@/components/faq-section";
+import { HomeHero } from "@/components/hero";
+import { ServiceIcon } from "@/components/icons";
+import { faqSchema, JsonLd } from "@/components/json-ld";
+import { Reveal } from "@/components/motion-primitives";
 import { ProcessSection } from "@/components/process-section";
 import { Eyebrow, Section } from "@/components/section";
 import { SocialProof } from "@/components/social-proof";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { services, site } from "@/lib/site";
+import { Surface } from "@/components/surface";
+import { services } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
-      <Section className="flex min-h-[calc(100svh-4.25rem)] flex-col justify-center py-16 md:py-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
-          <div className="flex flex-col gap-8">
-            <Eyebrow>{site.domain}</Eyebrow>
-            <h1 className="max-w-xl text-4xl leading-[1.1] sm:text-5xl md:text-6xl">
-              {site.tagline}
-            </h1>
-            <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-              Landing pages, sites multi-página (com ou sem formulário) e
-              agendamento. Direção editorial, não decoração. O visitante deve
-              perceber a oferta e saber o próximo passo.
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
-                render={<Link href="/marcar-call" />}
-                nativeButton={false}
-                className="h-12 px-6 text-sm"
-              >
-                Marcar call
-              </Button>
-              <Button
-                render={<Link href="/servicos" />}
-                nativeButton={false}
-                variant="outline"
-                className="h-12 px-6 text-sm"
-              >
-                Ver serviços
-              </Button>
-            </div>
-          </div>
-          <div className="flex justify-center lg:justify-end">
-            <Kiko slot="hero" size="lg" priority />
-          </div>
-        </div>
-      </Section>
+      <JsonLd data={faqSchema()} />
+      <HomeHero />
 
-      <div className="border-y border-border bg-card/60">
+      <div className="border-y border-foreground/8 bg-card/35">
         <SocialProof />
       </div>
 
       <Section className="py-20 md:py-28">
         <div className="flex flex-col gap-12">
-          <div className="flex max-w-xl flex-col gap-4">
+          <Reveal className="flex max-w-xl flex-col gap-5">
             <Eyebrow>O que fazemos</Eyebrow>
-            <h2 className="text-3xl leading-tight md:text-4xl">
+            <h2 className="text-3xl leading-tight md:text-5xl">
               Três formatos, um critério: clareza que converte.
             </h2>
-          </div>
+          </Reveal>
           <div className="grid gap-4 md:grid-cols-3">
-            {services.map((service) => (
-              <Card key={service.slug}>
-                <CardHeader>
-                  <CardTitle className="font-heading text-2xl">
+            {services.map((service, index) => (
+              <Reveal key={service.slug} delay={index * 0.08}>
+                <Surface>
+                  <ServiceIcon name={service.icon} className="text-foreground" />
+                  <h3 className="font-heading text-2xl md:text-3xl">
                     {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <p className="leading-relaxed text-muted-foreground">
                     {service.summary}
                   </p>
-                </CardContent>
-              </Card>
+                </Surface>
+              </Reveal>
             ))}
           </div>
-          <div>
-            <Button
-              render={<Link href="/servicos" />}
-              nativeButton={false}
-              variant="outline"
-              className="h-11 px-5"
-            >
+          <Reveal>
+            <Cta href="/servicos" variant="ctaOutline">
               Ver serviços
-            </Button>
-          </div>
+            </Cta>
+          </Reveal>
         </div>
       </Section>
 
-      <div className="border-t border-border">
+      <div className="border-t border-foreground/8">
         <ProcessSection />
       </div>
 
-      <div className="border-t border-border bg-primary text-primary-foreground">
+      <div className="border-y border-foreground/8">
+        <FaqSection />
+      </div>
+
+      <div className="bg-primary text-primary-foreground">
         <Section className="py-20 md:py-24">
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <Reveal className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div className="flex max-w-xl flex-col gap-3">
-              <h2 className="text-3xl leading-tight md:text-4xl">
+              <h2 className="text-3xl leading-tight md:text-5xl">
                 Uma call. Sem pitch longo.
               </h2>
-              <p className="text-sm leading-relaxed text-primary-foreground/75">
+              <p className="text-sm leading-relaxed text-primary-foreground/70">
                 Pedido de marcação — ainda um stub. Serve para ensaiar o
                 caminho até à conversa.
               </p>
             </div>
-            <Button
-              render={<Link href="/marcar-call" />}
-              nativeButton={false}
-              variant="secondary"
-              className="h-12 px-6"
-            >
+            <Cta href="/marcar-call" variant="ctaInverse">
               Marcar call
-            </Button>
-          </div>
+            </Cta>
+          </Reveal>
         </Section>
       </div>
     </>
