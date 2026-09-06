@@ -101,6 +101,7 @@ export function Kiko({
           width={411}
           height={569}
           priority={priority}
+          unoptimized
           className="relative h-auto w-full bg-transparent"
         />
         {!reduce && resolved === "celebrate" ? <Sparkles /> : null}
@@ -147,6 +148,7 @@ export function KikoMark({ className }: { className?: string }) {
       alt=""
       width={28}
       height={36}
+      unoptimized
       className={cn("h-8 w-auto", className)}
     />
   );
