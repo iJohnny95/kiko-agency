@@ -1,4 +1,5 @@
-import { postHeadings, type BlogPost } from "@/lib/blog";
+import { postHeadings } from "@/lib/blog-meta";
+import type { BlogPost } from "@/lib/blog-types";
 
 export function BlogToc({ post }: { post: BlogPost }) {
   const headings = postHeadings(post);

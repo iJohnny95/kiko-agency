@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BlogIndex } from "@/components/blog-index";
 import { Reveal } from "@/components/motion-primitives";
 import { Band, Eyebrow, Section } from "@/components/section";
+import { posts } from "@/lib/blog";
 import { pages } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function BlogPage() {
             marcações, escolha de agência e o caminho do brief ao site no ar.
           </p>
         </Reveal>
-        <BlogIndex />
+        <BlogIndex posts={posts} />
       </Section>
     </Band>
   );

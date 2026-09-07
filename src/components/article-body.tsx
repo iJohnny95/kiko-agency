@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { headingId, type BlogBlock } from "@/lib/blog";
+import { headingId } from "@/lib/blog-meta";
+import type { BlogBlock } from "@/lib/blog-types";
 
 const phrases: [string, string][] = [
   ["Marcar call", "/marcar-call"],

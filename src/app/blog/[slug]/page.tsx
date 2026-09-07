@@ -9,6 +9,7 @@ import { Reveal } from "@/components/motion-primitives";
 import { RelatedPosts } from "@/components/related-posts";
 import { Band, Eyebrow, Section } from "@/components/section";
 import { getPost, posts, topicLabel } from "@/lib/blog";
+import { site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -24,11 +25,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
+  const title = `${post.title} | ${site.name}`;
   return {
-    title: post.title,
+    title: { absolute: title },
     description: post.description,
     openGraph: {
-      title: post.title,
+      title,
       description: post.description,
       type: "article",
       locale: "pt_PT",

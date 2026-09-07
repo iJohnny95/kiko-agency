@@ -4,10 +4,11 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Stagger, StaggerItem } from "@/components/motion-primitives";
 import { Surface } from "@/components/surface";
-import { blogTopics, posts, topicLabel, type BlogTopic } from "@/lib/blog";
+import { blogTopics, topicLabel } from "@/lib/blog-meta";
+import type { BlogPost, BlogTopic } from "@/lib/blog-types";
 import { cn } from "@/lib/utils";
 
-export function BlogIndex() {
+export function BlogIndex({ posts }: { posts: BlogPost[] }) {
   const [topic, setTopic] = useState<BlogTopic | "todos">("todos");
   const visible = useMemo(
     () => (topic === "todos" ? posts : posts.filter((post) => post.topic === topic)),

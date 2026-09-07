@@ -48,11 +48,11 @@ export function FeaturedStrip() {
         {slots.map((slot) => (
           <article
             key={slot.id}
-            className="flex min-h-[160px] w-[min(82%,22rem)] min-w-[min(82%,22rem)] shrink-0 snap-start flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-[#121212] sm:w-[min(46%,22rem)] sm:min-w-[min(46%,22rem)]"
+            className="flex min-h-[160px] w-[min(82%,22rem)] min-w-[min(82%,22rem)] shrink-0 snap-start flex-col items-center justify-center gap-3 rounded-2xl border border-cream/12 bg-navy-alt/80 sm:w-[min(46%,22rem)] sm:min-w-[min(46%,22rem)]"
           >
             <span
               aria-hidden
-              className="size-10 rounded-md border border-white/16 bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.12)_0_1px,transparent_1px_10px)]"
+              className="size-10 rounded-full border border-cream/12 bg-[#e08a4d]/20"
             />
             <p className="text-[0.7rem] tracking-[0.16em] text-white/45 uppercase">
               Espaço para projecto
