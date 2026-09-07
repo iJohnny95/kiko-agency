@@ -3,7 +3,7 @@ import { posts } from "@/lib/blog";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-09-06");
+  const lastModified = new Date("2026-09-07");
   const routes = [
     "",
     "/servicos",

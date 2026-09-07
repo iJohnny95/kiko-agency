@@ -1,4 +1,5 @@
 import { Audience } from "@/components/audience";
+import { CaseTeaser } from "@/components/case-teaser";
 import { Cta } from "@/components/cta";
 import { FaqSection } from "@/components/faq-section";
 import { HomeHero } from "@/components/hero";
@@ -31,6 +32,9 @@ export default function HomePage() {
         <ServicesTabs />
       </Band>
       <Band tone="alt">
+        <CaseTeaser />
+      </Band>
+      <Band>
         <ProcessSection />
       </Band>
       <Band>

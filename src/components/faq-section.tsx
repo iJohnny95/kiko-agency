@@ -21,8 +21,8 @@ export function FaqSection() {
             <span className="text-gradient">não inventamos</span>.
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            FAQ com schema FAQPage. O preço sai da proposta depois do brief —
-            sem tabela de montra.
+            FAQ com schema FAQPage. Os intervalos de preço estão abaixo; o
+            número exacto sai da proposta, depois do brief.
           </p>
         </Reveal>
         <Reveal delay={0.08}>

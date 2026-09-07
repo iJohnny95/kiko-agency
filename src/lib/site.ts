@@ -363,9 +363,9 @@ export const includedRows = [
   },
   {
     label: "Mensalidade de manutenção",
-    landing: "Não",
-    multi: "Não",
-    booking: "Não",
+    landing: "Linha própria",
+    multi: "Linha própria",
+    booking: "Linha própria",
   },
 ] as const;
 
@@ -377,7 +377,7 @@ export const studio = {
 export const contactFaqs = [
   {
     q: "Quanto custa um site?",
-    a: "A resposta completa está na FAQ da página inicial: não há tabela pública nem um «a partir de». O preço sai da proposta, depois do brief.",
+    a: "Os intervalos — Essencial, Presença e Operação — estão na FAQ da página inicial. O número exacto sai da proposta, depois do brief.",
   },
   {
     q: "Este formulário já envia?",
@@ -391,11 +391,11 @@ export const contactFaqs = [
 
 export const nextSteps = {
   response:
-    "Quando o envio estiver ligado, a resposta prevista é em dias úteis — não em minutos de chatbot. Até lá, o formulário só confirma no ecrã.",
+    "Quando o envio estiver ligado, a resposta prevista é em 24 horas úteis. Até lá, o formulário só confirma no ecrã.",
   afterContact:
     "Leitura do pedido. Se houver encaixe, convite para brief. Se não houver, diz-se. Sem sequências agressivas.",
   afterCall:
-    "Brief → proposta escrita (âmbito, prazo, preço, o que fica de fora) → entrega. Se a proposta não servir, termina ali.",
+    "Call sem compromisso. Brief → proposta escrita (âmbito, prazo, preço, o que fica de fora) → entrega. Em regra 2–4 semanas; o calendário exacto fica na proposta.",
   prepare: [
     "O que o negócio vende, em uma frase",
     "Quem é o visitante que importa",
@@ -428,19 +428,19 @@ export const faqs = [
   },
   {
     q: "Quanto custa um site?",
-    a: "Ainda não há tabela pública nem um «a partir de» de montra. O preço sai da proposta, depois do brief: número de páginas, formulário ou marcações, prazo e o que fica de fora. Landing, multi-página e agendamento têm âmbitos diferentes — não se cotam iguais.",
+    a: "Depois do brief, o projecto cai num destes intervalos: Essencial 490–790€, Presença 1200–1900€, Operação 1900–2900€. O orçamento exacto fica na proposta — sem «a partir de» de montra. Landing, multi-página e marcações não se cotam iguais.",
   },
   {
     q: "O que está incluído no preço?",
-    a: "O que estiver escrito na proposta. Em regra: estrutura, páginas combinadas, estados de formulário se fizerem parte, e publicação. Foto, copy longa, anúncios ou manutenção não entram por omissão.",
+    a: "O que estiver escrito na proposta. Em regra: estrutura, páginas combinadas, estados de formulário se fizerem parte, e publicação. Foto, copy longa ou anúncios não entram por omissão.",
   },
   {
     q: "Há mensalidade?",
-    a: "Este site não vende hosting nem retainer. Se no futuro existir manutenção, aparece como linha própria na proposta — não escondida no valor do site.",
+    a: "A manutenção é linha própria, se fizer sentido: Lite 49€, Ativa 99€ ou Parceiro 149€ por mês. Não está embutida no valor do site.",
   },
   {
     q: "Quanto tempo demora?",
-    a: "Depende do âmbito. O calendário fica escrito na proposta — não num prazo genérico de marketing.",
+    a: "Em regra 2–4 semanas. O calendário exacto fica na proposta.",
   },
   {
     q: "Trabalham só em Portugal?",
@@ -452,7 +452,7 @@ export const faqs = [
   },
   {
     q: "O que acontece depois da call?",
-    a: "Brief → proposta → entrega. Se não houver encaixe, diz-se com clareza. Sem pitch longo nem follow-up agressivo.",
+    a: "Call sem compromisso. Brief → proposta → entrega. Quando o envio estiver ligado, a resposta prevista é em 24 horas úteis. Se não houver encaixe, diz-se com clareza.",
   },
   {
     q: "Para quem é a Kiko Agency?",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { BlogBlock } from "@/lib/blog";
+import { headingId, type BlogBlock } from "@/lib/blog";
 
 const phrases: [string, string][] = [
   ["Marcar call", "/marcar-call"],
@@ -44,7 +44,7 @@ function LinkedText({ text }: { text: string }) {
 
 export function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
   return (
-    <div className="flex max-w-2xl flex-col gap-6">
+    <div className="prose-kiko flex max-w-prose flex-col gap-6">
       {blocks.map((block, index) => {
         if (block.type === "p") {
           return (
@@ -60,7 +60,8 @@ export function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
           return (
             <h2
               key={index}
-              className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl"
+              id={headingId(block.text)}
+              className="mt-4 scroll-mt-28 text-2xl leading-tight md:text-3xl"
             >
               {block.text}
             </h2>

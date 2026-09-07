@@ -7,7 +7,7 @@ import { services } from "@/lib/site";
 
 export function ServiceGuide() {
   return (
-    <div className="border-t border-cream/10">
+    <div>
       {services.map((service, index) => (
         <Section
           key={service.slug}

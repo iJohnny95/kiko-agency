@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBookCta } from "@/components/sticky-book-cta";
-import { JsonLd, organizationSchema, serviceSchemas } from "@/components/json-ld";
+import { JsonLd, organizationSchema } from "@/components/json-ld";
 import { pages, site } from "@/lib/site";
 import "./globals.css";
 
@@ -48,9 +48,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <JsonLd data={organizationSchema()} />
-        {serviceSchemas().map((schema) => (
-          <JsonLd key={String(schema.name)} data={schema} />
-        ))}
         <SiteHeader />
         <main className="relative z-10 flex flex-1 flex-col pb-[calc(5.75rem+env(safe-area-inset-bottom))] md:pb-0">
           {children}
