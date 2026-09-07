@@ -1,6 +1,6 @@
 export const site = {
   name: "Kiko Agency",
-  wordmark: "KiKO",
+  wordmark: "KIKO",
   domain: "kiko-agency.pt",
   url: "https://kiko-agency.pt",
   tagline: "Tinta com direção. Sites que convertem.",
@@ -57,7 +57,7 @@ export const pages = {
     title: "Blog",
     h1: "Notas sobre sites que convertem",
     description:
-      "Artigos em português europeu sobre websites em Portugal: preço, landing pages, marcações, escolha de agência e RGPD.",
+      "Artigos em português europeu sobre websites em Portugal: preço, landing page ou multi-página, marcações, escolha de agência e o caminho do brief ao site no ar.",
   },
 } as const;
 
@@ -297,6 +297,95 @@ export const caseFramework = [
     success:
       "O pedido chega com contexto suficiente para responder — sem convites fantasma neste site.",
     status: "Reservado — o stub vive em Marcar call",
+  },
+] as const;
+
+export const featuredCase = {
+  eyebrow: "Caso em destaque",
+  title: "Um projecto publicado — quando houver autorização",
+  format: "Landing, multi-página ou marcações",
+  client: "Nome do negócio — só com autorização",
+  context:
+    "O caso descreve o negócio, o formato e o que o visitante precisava de fazer. Sem capturas inventadas e sem números de montra.",
+  success:
+    "Uma pessoa nova percebe a oferta e o próximo passo. O critério fica escrito — não uma percentagem fabricada.",
+  status: "Reservado",
+} as const;
+
+export const includedRows = [
+  {
+    label: "Direção da oferta e hierarquia",
+    landing: "Sim",
+    multi: "Sim",
+    booking: "Sim",
+  },
+  {
+    label: "Uma página, um CTA principal",
+    landing: "Sim",
+    multi: "Não — várias páginas",
+    booking: "Pode ser",
+  },
+  {
+    label: "Arquitectura e navegação",
+    landing: "Não",
+    multi: "Sim",
+    booking: "Se o site tiver várias",
+  },
+  {
+    label: "Formulário de contacto ou pedido",
+    landing: "Se estiver no âmbito",
+    multi: "Opcional",
+    booking: "Pedido de hora",
+  },
+  {
+    label: "Pedido de marcação / janela",
+    landing: "Não por omissão",
+    multi: "Não por omissão",
+    booking: "Sim",
+  },
+  {
+    label: "Confirmação no ecrã",
+    landing: "Se houver formulário",
+    multi: "Se houver formulário",
+    booking: "Sim (neste site, local)",
+  },
+  {
+    label: "Calendário e convites",
+    landing: "Não",
+    multi: "Não",
+    booking: "Quando o envio estiver ligado",
+  },
+  {
+    label: "Anúncios / media",
+    landing: "Não por omissão",
+    multi: "Não por omissão",
+    booking: "Não por omissão",
+  },
+  {
+    label: "Mensalidade de manutenção",
+    landing: "Não",
+    multi: "Não",
+    booking: "Não",
+  },
+] as const;
+
+export const studio = {
+  lead: "A Kiko Agency é um estúdio em Portugal. Escreve em português europeu. Faz sites com direção editorial — não campanhas de anúncios nem lojas de prateleira.",
+  body: "Não há biografia inflada nem «equipa de 40 pessoas». Há um método curto e um critério observável: o visitante percebe a oferta e sabe o que fazer a seguir. O domínio previsto é kiko-agency.pt. Outros mercados podem entrar na conversa — sem fingir uma rede internacional.",
+} as const;
+
+export const contactFaqs = [
+  {
+    q: "Quanto custa um site?",
+    a: "A resposta completa está na FAQ da página inicial: não há tabela pública nem um «a partir de». O preço sai da proposta, depois do brief.",
+  },
+  {
+    q: "Este formulário já envia?",
+    a: "Não. A confirmação é local até o envio estar ligado. O mesmo vale para Marcar call.",
+  },
+  {
+    q: "O que acontece depois de escrever?",
+    a: "Leitura do pedido. Se houver encaixe, convite para brief. Se não houver, diz-se. Sem sequências agressivas.",
   },
 ] as const;
 

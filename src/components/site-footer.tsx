@@ -5,11 +5,11 @@ import { navItems, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-10 mt-auto border-t border-white/8">
+    <footer className="relative z-10 mt-auto border-t border-cream/10">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 sm:px-6 md:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
           <div className="flex max-w-sm flex-col gap-3">
-            <Wordmark className="text-2xl" />
+            <Wordmark />
             <p className="text-sm leading-relaxed text-muted-foreground">
               {site.tagline}
             </p>

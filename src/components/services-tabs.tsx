@@ -20,7 +20,7 @@ export function ServicesTabs({
     services.find((service) => service.slug === active) ?? services[0];
 
   return (
-    <Section className="py-20 md:py-28">
+    <Section className="section-y">
       <div className="flex flex-col gap-10">
         {heading ? (
           <div className="flex max-w-2xl flex-col gap-5">

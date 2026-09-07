@@ -4,7 +4,7 @@ import { stats } from "@/lib/site";
 
 export function StatsBand() {
   return (
-    <div className="border-y border-white/8 bg-card/40">
+    <div>
       <Section className="py-14 md:py-16">
         <Stagger className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
           {stats.map((stat) => (

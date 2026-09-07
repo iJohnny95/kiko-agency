@@ -12,20 +12,15 @@ export function Wordmark({
   return (
     <Link
       href={href}
-      className={cn(
-        "font-heading inline-flex items-start text-[1.35rem] font-semibold tracking-[-0.04em]",
-        className
-      )}
+      className={cn("inline-flex items-center", className)}
     >
-      <span aria-hidden>KiKO</span>
-      <svg
-        viewBox="0 0 8 8"
-        className="mt-1 ml-1 size-1.5 shrink-0"
-        aria-hidden
-      >
-        <circle cx="4" cy="4" r="4" fill="#F08A3A" />
-      </svg>
-      <span className="sr-only">{site.name}</span>
+      <img
+        src="/kiko-logo.svg"
+        alt={site.name}
+        width={108}
+        height={40}
+        className="h-7 w-auto md:h-8"
+      />
     </Link>
   );
 }

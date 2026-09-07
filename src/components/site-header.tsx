@@ -38,8 +38,8 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-40 border-b backdrop-blur-xl transition-[transform,background-color,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         compact
-          ? "border-white/12 bg-background/85"
-          : "border-white/8 bg-background/70",
+          ? "border-cream/12 bg-background/85"
+          : "border-cream/10 bg-background/70",
         hidden ? "max-lg:translate-y-0 lg:-translate-y-full" : "translate-y-0"
       )}
     >

@@ -7,12 +7,12 @@ import { services } from "@/lib/site";
 
 export function ServiceGuide() {
   return (
-    <div className="border-t border-white/8">
+    <div className="border-t border-cream/10">
       {services.map((service, index) => (
         <Section
           key={service.slug}
           id={service.slug}
-          className="py-16 md:py-24"
+          className="section-y"
         >
           <Reveal delay={index * 0.04} className="flex flex-col gap-8">
             <div className="flex items-start gap-4">

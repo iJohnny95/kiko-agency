@@ -32,6 +32,30 @@ export function Section({
   );
 }
 
+export function Band({
+  tone = "base",
+  flush = false,
+  children,
+  className,
+}: {
+  tone?: "base" | "alt";
+  flush?: boolean;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        tone === "alt" ? "bg-navy-alt" : "bg-navy",
+        !flush && "border-t border-cream/10",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <p className="flex items-center gap-3 text-[0.7rem] font-medium tracking-[0.22em] text-muted-foreground uppercase">

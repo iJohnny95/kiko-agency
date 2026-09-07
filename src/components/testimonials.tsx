@@ -7,7 +7,7 @@ import { testimonials } from "@/lib/site";
 
 export function Testimonials() {
   return (
-    <Section className="py-20 md:py-28">
+    <Section className="section-y">
       <div className="flex flex-col gap-12">
         <Reveal className="flex max-w-2xl flex-col gap-5">
           <Eyebrow>Prova</Eyebrow>

@@ -15,7 +15,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/wordmark.svg`,
+    logo: `${site.url}/kiko-logo-on-navy.svg`,
     description: site.description,
     areaServed: {
       "@type": "Country",
@@ -69,7 +69,7 @@ export function blogPostingSchema(post: {
       url: site.url,
       logo: {
         "@type": "ImageObject",
-        url: `${site.url}/wordmark.svg`,
+        url: `${site.url}/kiko-logo-on-navy.svg`,
       },
     },
   };

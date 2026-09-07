@@ -12,7 +12,7 @@ import { faqs } from "@/lib/site";
 
 export function FaqSection() {
   return (
-    <Section id="faq" className="py-20 md:py-28">
+    <Section id="faq" className="section-y">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
         <Reveal className="flex max-w-md flex-col gap-5">
           <Eyebrow>Perguntas</Eyebrow>

@@ -6,7 +6,7 @@ import { processSteps } from "@/lib/site";
 
 export function ProcessSection() {
   return (
-    <Section className="py-20 md:py-28">
+    <Section className="section-y">
       <div className="flex flex-col gap-14">
         <Reveal className="flex max-w-xl flex-col gap-5">
           <Eyebrow>Sistema</Eyebrow>

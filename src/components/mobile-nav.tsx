@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Cta } from "@/components/cta";
 import { NavLinks } from "@/components/nav-links";
-import { site } from "@/lib/site";
+import { Wordmark } from "@/components/wordmark";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -37,8 +37,8 @@ export function MobileNav() {
         className="w-full max-w-none border-l-foreground/8 bg-background/95 pb-[max(1.5rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:max-w-sm"
       >
         <SheetHeader>
-          <SheetTitle className="font-heading text-2xl tracking-[-0.04em]">
-            {site.wordmark}
+          <SheetTitle>
+            <Wordmark href="/" className="pointer-events-none" />
           </SheetTitle>
           <SheetDescription>Navegação do site.</SheetDescription>
         </SheetHeader>

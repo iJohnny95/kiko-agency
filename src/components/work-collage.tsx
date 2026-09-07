@@ -11,6 +11,15 @@ import { cn } from "@/lib/utils";
 import { collageTiles } from "@/lib/site";
 import { ease } from "@/components/motion-primitives";
 
+const layouts = [
+  "min-h-[236px] lg:col-span-7 lg:row-span-2 lg:min-h-[308px]",
+  "min-h-[148px] lg:col-span-5 lg:mt-16 lg:min-h-[164px]",
+  "min-h-[188px] lg:col-span-5 lg:-mt-1 lg:min-h-[208px]",
+  "min-h-[172px] lg:col-span-6 lg:mt-12 lg:min-h-[186px]",
+  "min-h-[140px] lg:col-span-6 lg:mt-3 lg:translate-x-2 lg:min-h-[152px]",
+  "min-h-[220px] lg:col-span-8 lg:col-start-4 lg:-mt-8 lg:translate-x-3 lg:min-h-[248px]",
+];
+
 export function WorkCollage() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -29,7 +38,7 @@ export function WorkCollage() {
       ref={ref}
       aria-label="Grelha de trabalho reservado"
       style={{ y: drift }}
-      className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2 md:items-start"
+      className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2 md:items-start lg:grid-cols-12"
     >
       {collageTiles.map((tile, index) => (
         <motion.article
@@ -47,32 +56,29 @@ export function WorkCollage() {
               : { y: -8, transition: { type: "spring", stiffness: 320, damping: 20 } }
           }
           className={cn(
-            "group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#121212] p-4",
-            tile.span === "tall" && "min-h-[220px] lg:min-h-[280px] lg:row-span-2",
-            tile.span === "mid" && "min-h-[188px] lg:min-h-[200px] lg:mt-8",
-            tile.span === "short" && "min-h-[160px] lg:min-h-[150px] lg:-mt-2",
-            index === 1 && "lg:mt-12",
-            index === 4 && "lg:translate-x-2",
+            "group relative min-w-0 overflow-hidden rounded-2xl border border-cream/12 bg-navy-alt/80 p-4 transition-shadow duration-500",
+            layouts[index],
             tile.glow &&
-              "shadow-[0_0_48px_-12px_rgba(240,138,58,0.55)]"
+              "shadow-[0_0_48px_-12px_rgba(224,138,77,0.45)]",
+            "hover:shadow-[0_0_56px_-10px_rgba(224,138,77,0.55)]"
           )}
         >
           {tile.glow ? (
             <span
               aria-hidden
-              className="pointer-events-none absolute -right-8 -bottom-10 size-36 rounded-full bg-[#f08a3a]/25 blur-3xl"
+              className="pointer-events-none absolute -right-8 -bottom-10 size-36 rounded-full bg-[#e08a4d]/25 blur-3xl"
             />
           ) : null}
           <TileMotif motif={tile.motif} />
           <div className="relative flex items-center justify-between gap-3">
-            <span className="flex size-7 items-center justify-center rounded-full border border-white/14 text-[0.65rem] font-semibold tracking-wide">
+            <span className="flex size-7 items-center justify-center rounded-full border border-cream/12 text-[0.65rem] font-semibold tracking-wide">
               {tile.mark}
             </span>
-            <span className="h-px flex-1 bg-white/10" />
+            <span className="h-px flex-1 bg-cream/10" />
             <span className="flex gap-1" aria-hidden>
-              <span className="h-1 w-4 rounded-full bg-white/20" />
-              <span className="h-1 w-3 rounded-full bg-white/10" />
-              <span className="h-1 w-3 rounded-full bg-white/10" />
+              <span className="h-1 w-4 rounded-full bg-cream/20" />
+              <span className="h-1 w-3 rounded-full bg-cream/10" />
+              <span className="h-1 w-3 rounded-full bg-cream/10" />
             </span>
           </div>
           <div className="relative mt-8 flex flex-col gap-2">
@@ -123,7 +129,7 @@ function TileMotif({ motif }: { motif: (typeof collageTiles)[number]["motif"] })
     return (
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-6 top-8 size-28 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(240,138,58,0.45),transparent_62%)]"
+        className="pointer-events-none absolute -right-6 top-8 size-28 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(224,138,77,0.45),transparent_62%)]"
       />
     );
   }
@@ -139,24 +145,10 @@ function TileMotif({ motif }: { motif: (typeof collageTiles)[number]["motif"] })
     );
   }
 
-  if (motif === "mesh") {
-    return (
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.35) 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
-        }}
-      />
-    );
-  }
-
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-6 rounded-xl border border-white/8"
+      className="pointer-events-none absolute inset-6 rounded-xl border border-cream/10"
     />
   );
 }
