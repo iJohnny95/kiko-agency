@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 40" fill="none" role="img" aria-labelledby="kikoWordmarkTitle">
+  <title id="kikoWordmarkTitle">KIKO</title>
+  <g fill="none" stroke="#F4EFE6" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M6 8v24M6 20L21 8M6 20L21 32"/>
+    <path d="M37 13v19"/>
+    <path d="M53 8v24M53 20L68 8M53 20L68 32"/>
+    <ellipse cx="90" cy="20" rx="11.2" ry="13"/>
+  </g>
+  <circle cx="37" cy="7.2" r="2.55" fill="#F08A3A"/>
+</svg>

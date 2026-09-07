@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  framework = "next"
+
+[[redirects]]
+  from = "/blog/landing-page-vs-site-multi-pagina"
+  to = "/blog/landing-page-ou-site-multi-pagina"
+  status = 301
+
+[[redirects]]
+  from = "/blog/site-com-agendamento-e-marcacoes"
+  to = "/blog/site-com-formulario-e-marcacoes"
+  status = 301
+
+[[redirects]]
+  from = "/blog/rgpd-e-formularios-de-contacto"
+  to = "/blog/site-com-formulario-e-marcacoes"
+  status = 301
