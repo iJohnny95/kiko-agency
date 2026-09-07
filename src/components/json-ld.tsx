@@ -15,7 +15,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/kiko/idle.png`,
+    logo: `${site.url}/wordmark.svg`,
     description: site.description,
     areaServed: {
       "@type": "Country",
@@ -42,6 +42,37 @@ export function serviceSchemas() {
     areaServed: "PT",
     url: `${site.url}/servicos`,
   }));
+}
+
+export function blogPostingSchema(post: {
+  title: string;
+  description: string;
+  slug: string;
+  date: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    inLanguage: "pt-PT",
+    url: `${site.url}/blog/${post.slug}`,
+    author: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/wordmark.svg`,
+      },
+    },
+  };
 }
 
 export function faqSchema() {

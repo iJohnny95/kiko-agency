@@ -19,7 +19,7 @@ export function NavLinks({
   return (
     <ul
       className={cn(
-        stacked ? "flex flex-col gap-1" : "flex items-center gap-8",
+        stacked ? "flex flex-col gap-1" : "flex items-center gap-5 xl:gap-7",
         className
       )}
     >

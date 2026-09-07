@@ -1,3 +1,4 @@
+import { Audience } from "@/components/audience";
 import { Cta } from "@/components/cta";
 import { FaqSection } from "@/components/faq-section";
 import { HomeHero } from "@/components/hero";
@@ -15,6 +16,9 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema()} />
       <HomeHero />
+      <div className="border-t border-white/8">
+        <Audience />
+      </div>
       <StatsBand />
       <LogoStrip />
       <ServicesTabs />
@@ -40,11 +44,22 @@ export default function HomePage() {
                 <span className="text-gradient">Sem pitch longo.</span>
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Pedido de marcação — ainda um stub. Serve para ensaiar o
-                caminho até à conversa.
+                Brief, proposta, entrega. O pedido de marcação neste site ainda
+                é um stub — o caminho até à conversa é este.
               </p>
             </div>
-            <Cta href="/marcar-call">Marcar call</Cta>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <Cta href="/marcar-call" className="w-full sm:w-auto">
+                Marcar call
+              </Cta>
+              <Cta
+                href="/contacto"
+                variant="ctaOutline"
+                className="w-full sm:w-auto"
+              >
+                Escrever
+              </Cta>
+            </div>
           </Reveal>
         </Section>
       </div>
